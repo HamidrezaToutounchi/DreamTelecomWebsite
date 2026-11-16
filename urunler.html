@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grandstream Donanım Kataloğu | Dream Telecom</title>
+  <meta name="description" content="Grandstream UCM6300 IP PBX santraller, GRP serisi IP telefonlar, Wi-Fi 7 erişim noktaları, Layer 3 PoE switchler ve interkom üniteleri.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'dream-blue': '#004A93',
+            'dream-blue-hover': '#003870',
+            'dream-blue-light': '#eaf2fa',
+            'dream-green': '#78C042',
+            'dream-green-dark': '#5fa52b',
+            'dream-green-light': '#f2f9ed',
+            'dream-teal': '#0082A6',
+            'dream-teal-light': '#e6f5f8',
+            'dream-gray': '#67737B',
+            'dream-dark': '#071530',
+            'dream-warm': '#FFF9EE',
+            'dream-warm-border': '#F7E7CD',
+            'dream-warm-text': '#7A5B28',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/products-data.js"></script>
+
+  <style>
+    .nav-dropdown {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-item:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .btn-hover-lift {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-hover-lift:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 74, 147, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased font-sans relative">
+
+  <!-- ABSOLUTE VERTICAL GRID GUIDELINES -->
+  <div class="pointer-events-none fixed inset-0 z-30 mx-auto max-w-7xl px-5 sm:px-9 lg:px-16 flex justify-between">
+    <div class="h-full w-px bg-slate-200/70"></div>
+    <div class="h-full w-px bg-slate-200/70"></div>
+  </div>
+
+  <!-- TOP ANNOUNCEMENT BANNER -->
+  <div id="top-announcement" class="bg-dream-warm border-b border-dream-warm-border text-xs py-2 px-4 text-dream-warm-text font-medium relative z-50">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16 flex items-center justify-between">
+      <div class="flex items-center gap-2 mx-auto sm:mx-0">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-dream-green/20 text-dream-green-dark border border-dream-green/30">
+          STH LİSANSLI
+        </span>
+        <span>BTK Yetkili Telekom Operatörü • Online başvuru ile dakikalar içinde aktivasyon •</span>
+        <a href="iletisim.html" class="font-bold text-dream-blue hover:underline ml-1">Hemen Başvur →</a>
+      </div>
+      <button onclick="document.getElementById('top-announcement').style.display='none'" class="hidden sm:block text-slate-400 hover:text-slate-600 text-sm font-bold">✕</button>
+    </div>
+  </div>
+
+  <!-- UTILITY TOPBAR -->
+  <div class="bg-white border-b border-slate-100 text-xs text-slate-600 py-2 hidden sm:block relative z-40">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16 flex items-center justify-between">
+      <div class="flex items-center gap-6">
+        <a href="iletisim.html" class="flex items-center gap-1.5 text-dream-blue font-semibold hover:text-dream-blue-hover">
+          <i data-lucide="laptop" class="w-3.5 h-3.5"></i>
+          <span>Online Başvuru</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-slate-500">STH Lisanslı Kurumsal Telekomünikasyon Çözümleri</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="hakkimizda.html" class="hover:text-dream-blue transition-colors">Destek Portalı</a>
+        <a href="iletisim.html" class="hover:text-dream-blue transition-colors flex items-center gap-1">
+          <span>Bakiye Paneli</span>
+          <span class="text-[10px]">↗</span>
+        </a>
+        <a href="tel:02129299900" class="flex items-center gap-1.5 font-bold text-slate-900 hover:text-dream-blue">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-dream-green"></i>
+          <span>0212 929 99 00</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center py-2 shrink-0 group">
+          <img src="assets/logo.png" alt="Dream Telecom" class="h-10 sm:h-12 w-auto object-contain">
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-semibold text-slate-700">
+          
+          <div class="nav-item relative py-7">
+            <button class="flex items-center gap-1 hover:text-dream-blue transition-colors">
+              <span>Kurumsal</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
+            </button>
+            <div class="nav-dropdown absolute left-0 top-full w-64 bg-white rounded-xl shadow-xl border border-slate-100 p-2 text-xs">
+              <a href="hakkimizda.html" class="block px-3 py-2 rounded-lg hover:bg-slate-50">Hakkımızda</a>
+              <a href="hakkimizda.html#tecrube" class="block px-3 py-2 rounded-lg hover:bg-slate-50">Aktif Kurumsal Tecrübe</a>
+              <a href="hakkimizda.html#guvenlik" class="block px-3 py-2 rounded-lg hover:bg-slate-50">Sistem & Veri Güvenliği</a>
+              <a href="hakkimizda.html#banka" class="block px-3 py-2 rounded-lg hover:bg-slate-50">Banka Hesap Bilgileri</a>
+            </div>
+          </div>
+
+          <div class="nav-item relative py-7">
+            <button class="flex items-center gap-1 hover:text-dream-blue transition-colors">
+              <span>Hizmetler</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
+            </button>
+            <div class="nav-dropdown absolute left-0 top-full w-72 bg-white rounded-xl shadow-xl border border-slate-100 p-2 text-xs">
+              <a href="cozumler.html#sanal-santral" class="block px-3 py-2 rounded-lg hover:bg-slate-50">IP Sanal Santral (Bulut PBX)</a>
+              <a href="cozumler.html#sip-trunk" class="block px-3 py-2 rounded-lg hover:bg-slate-50">SIP Trunk & Numara Taşıma</a>
+              <a href="cozumler.html#monites" class="block px-3 py-2 rounded-lg hover:bg-slate-50">Monites İzleme Yazılımı</a>
+              <a href="cozumler.html#crm" class="block px-3 py-2 rounded-lg hover:bg-slate-50">CRM Çağrı Yönetimi</a>
+            </div>
+          </div>
+
+          <a href="urunler.html" class="text-dream-blue font-bold">Grandstream Donanım</a>
+          <a href="paketler.html" class="hover:text-dream-blue transition-colors">Paketler</a>
+          <a href="hakkimizda.html#referanslar" class="hover:text-dream-blue transition-colors">Referanslar</a>
+          <a href="iletisim.html" class="hover:text-dream-blue transition-colors">İletişim</a>
+        </nav>
+
+        <div class="hidden sm:flex items-center gap-4">
+          <a href="https://gdms.cloud" target="_blank" class="text-xs font-bold text-slate-700 hover:text-dream-blue flex items-center gap-1">
+            <span>Giriş</span><span class="text-xs text-slate-400">↗</span>
+          </a>
+          <a href="iletisim.html" class="btn-hover-lift px-5 py-2.5 rounded-full font-bold text-xs text-white bg-gradient-to-r from-dream-blue via-[#005da8] to-dream-teal shadow-md shadow-dream-blue/20 flex items-center gap-2">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-dream-green"></i>
+            <span>Online Başvuru</span>
+          </a>
+        </div>
+
+        <button id="mobile-toggle" class="lg:hidden p-2 text-slate-700 hover:text-dream-blue">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-5 space-y-3 shadow-xl">
+      <a href="index.html" class="block font-medium text-slate-700 hover:text-dream-blue">Ana Sayfa</a>
+      <a href="hakkimizda.html" class="block font-medium text-slate-700 hover:text-dream-blue">Kurumsal & Hakkımızda</a>
+      <a href="cozumler.html" class="block font-medium text-slate-700 hover:text-dream-blue">Telekomünikasyon Hizmetleri</a>
+      <a href="urunler.html" class="block font-bold text-dream-blue">Grandstream Ürün Kataloğu</a>
+      <a href="paketler.html" class="block font-medium text-slate-700 hover:text-dream-blue">Tarifeler & Paketler</a>
+      <a href="iletisim.html" class="block font-medium text-slate-700 hover:text-dream-blue">İletişim & Destek</a>
+    </div>
+  </header>
+
+  <!-- PAGE HERO & FILTER CONTROLS -->
+  <section class="py-14 bg-gradient-to-b from-slate-50 to-white border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-dream-blue-light text-dream-blue text-xs font-mono font-bold mb-2">
+            <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+            <span>GRANDSTREAM.COM.TR RESMİ DONANIM VE AĞ PORTFÖYÜ</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+            Grandstream Ürün Kataloğu
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
+            Lisans ücreti gerektirmeyen kurumsal UCM6300 IP santraller, masaüstü GRP serisi telefonlar, Wi-Fi 7 access pointler ve Layer 3 PoE switchler.
+          </p>
+        </div>
+
+        <!-- Real-time Search -->
+        <div class="w-full lg:w-80">
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="catalog-search" placeholder="Model veya özellik ara (örn: UCM, Wi-Fi 7)..." 
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 bg-white text-xs sm:text-sm focus:outline-none focus:border-dream-blue focus:ring-2 focus:ring-dream-blue/15 shadow-sm">
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center gap-2" id="category-tabs">
+        <button onclick="filterCategory('Tümü')" class="cat-btn active px-4 py-2 rounded-xl text-xs font-bold bg-dream-blue text-white shadow-sm transition-all" data-cat="Tümü">
+          Tüm Ürünler (33)
+        </button>
+        <button onclick="filterCategory('Birleşik İletişim')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all" data-cat="Birleşik İletişim">
+          Birleşik İletişim (IP PBX & Telefon)
+        </button>
+        <button onclick="filterCategory('Ağ Çözümleri')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all" data-cat="Ağ Çözümleri">
+          Ağ Çözümleri (Wi-Fi 7 / Switch)
+        </button>
+        <button onclick="filterCategory('Yakınsama Çözümleri')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all" data-cat="Yakınsama Çözümleri">
+          Yakınsama (GCC 4'ü 1 Arada)
+        </button>
+        <button onclick="filterCategory('Bulut ve Yönetim')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all" data-cat="Bulut ve Yönetim">
+          Bulut & GDMS
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section class="py-16 bg-slate-50/70">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16">
+      
+      <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Rendered by JavaScript from products-data.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL: Grandstream Ürün Detay & Datasheet -->
+  <div id="product-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('product-modal')" class="absolute right-5 top-5 text-slate-400 hover:text-slate-700">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div id="product-detail-content"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16 pt-16 pb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div class="lg:col-span-2 space-y-4">
+          <img src="assets/logo.png" alt="Dream Telecom" class="h-10 w-auto object-contain brightness-125">
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            DREAM TELEKOMÜNİKASYON VE İLETİŞİM HİZMETLERİ SANAYİ TİC. LTD. ŞTİ.<br>
+            Grandstream Networks Türkiye Yetkili Entegrasyon ve Donanım Çözüm Ortağı.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase text-xs mb-3">Hızlı Bağlantılar</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-white">Ana Sayfa</a></li>
+            <li><a href="hakkimizda.html" class="hover:text-white">Kurumsal</a></li>
+            <li><a href="cozumler.html" class="hover:text-white">Çözümler</a></li>
+            <li><a href="paketler.html" class="hover:text-white">Paketler</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase text-xs mb-3">Kategoriler</h4>
+          <ul class="space-y-2">
+            <li><button onclick="filterCategory('Birleşik İletişim')" class="hover:text-white text-left">IP Santraller (PBX)</button></li>
+            <li><button onclick="filterCategory('Birleşik İletişim')" class="hover:text-white text-left">Masaüstü IP Telefonlar</button></li>
+            <li><button onclick="filterCategory('Ağ Çözümleri')" class="hover:text-white text-left">Wi-Fi 7 Erişim Noktaları</button></li>
+            <li><button onclick="filterCategory('Ağ Çözümleri')" class="hover:text-white text-left">Layer 3 PoE Switchler</button></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase text-xs mb-3">Proje & Teklif</h4>
+          <p class="text-white font-bold font-mono">0212 929 99 00</p>
+          <p class="text-[11px] text-slate-400 mt-1">satis@dreamtelecom.com.tr</p>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-slate-900 text-[11px] text-slate-500 flex justify-between">
+        <p>© 2026 DREAM TELEKOMÜNİKASYON LTD. ŞTİ.</p>
+        <span class="text-dream-green font-mono">Grandstream Certified Partner</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+
+      // Check query param for category
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('cat');
+      if (catParam) {
+        filterCategory(catParam);
+      } else {
+        renderProducts('Tümü');
+      }
+
+      // Mobile
+      const toggle = document.getElementById('mobile-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (toggle && menu) toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+      // Search
+      const search = document.getElementById('catalog-search');
+      if (search) {
+        search.addEventListener('input', (e) => {
+          const activeBtn = document.querySelector('.cat-btn.bg-dream-blue');
+          const activeCat = activeBtn ? activeBtn.getAttribute('data-cat') : 'Tümü';
+          renderProducts(activeCat, e.target.value);
+        });
+      }
+    });
+
+    function filterCategory(cat) {
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.classList.add('bg-dream-blue', 'text-white');
+          btn.classList.remove('bg-white', 'text-slate-700');
+        } else {
+          btn.classList.remove('bg-dream-blue', 'text-white');
+          btn.classList.add('bg-white', 'text-slate-700');
+        }
+      });
+      const searchVal = document.getElementById('catalog-search') ? document.getElementById('catalog-search').value : '';
+      renderProducts(cat, searchVal);
+    }
+
+    function renderProducts(category, searchQuery = '') {
+      const container = document.getElementById('products-container');
+      if (!container || !window.GRANDSTREAM_PRODUCTS) return;
+
+      let list = window.GRANDSTREAM_PRODUCTS;
+      if (category && category !== 'Tümü') {
+        list = list.filter(p => p.category === category);
+      }
+      if (searchQuery.trim() !== '') {
+        const q = searchQuery.toLowerCase();
+        list = list.filter(p => 
+          p.model.toLowerCase().includes(q) || 
+          p.subcategory.toLowerCase().includes(q) ||
+          (p.badge && p.badge.toLowerCase().includes(q)) ||
+          p.shortDescription.toLowerCase().includes(q)
+        );
+      }
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-500 bg-white rounded-2xl border border-slate-200">
+            <i data-lucide="package-search" class="w-8 h-8 mx-auto text-slate-400 mb-2"></i>
+            <p class="font-medium text-sm">Aramanıza uygun Grandstream donanımı bulunamadı.</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = list.map(item => `
+        <div class="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col justify-between hover:shadow-xl hover:border-dream-blue/50 transition-all group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-semibold truncate max-w-[150px]">
+                ${item.subcategory}
+              </span>
+              ${item.badge ? `
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${item.featured ? 'bg-dream-blue text-white' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}">
+                  ${item.badge}
+                </span>
+              ` : ''}
+            </div>
+
+            <div class="h-44 rounded-xl bg-slate-50 flex items-center justify-center p-4 mb-4 relative overflow-hidden group-hover:bg-slate-100/70 transition-colors">
+              <img src="${item.imageUrl}" alt="${item.model}" class="max-h-36 max-w-full object-contain group-hover:scale-105 transition-transform duration-300" 
+                onerror="this.onerror=null; this.src='https://www.grandstream.com/hubfs/Email%20Assets%20Q4%202020/UCM6300_series.png';">
+            </div>
+
+            <h3 class="font-bold text-sm text-slate-900 group-hover:text-dream-blue transition-colors mb-1.5 line-clamp-1" title="${item.model}">
+              ${item.model}
+            </h3>
+            <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed mb-4">
+              ${item.shortDescription}
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+            <button onclick="viewProductModal('${item.id}')" class="text-xs font-bold text-dream-blue hover:text-dream-blue-hover flex items-center gap-1">
+              <span>İncele</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+            <a href="iletisim.html" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 hover:bg-dream-blue hover:text-white transition-colors">
+              Fiyat İste
+            </a>
+          </div>
+        </div>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    function viewProductModal(id) {
+      if (!window.GRANDSTREAM_PRODUCTS) return;
+      const p = window.GRANDSTREAM_PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+
+      const specsHtml = Object.entries(p.specs || {}).map(([k, v]) => `
+        <div class="flex justify-between py-1.5 border-b border-slate-100 text-xs">
+          <span class="text-slate-500">${k}:</span>
+          <span class="font-semibold text-slate-800">${v}</span>
+        </div>
+      `).join('');
+
+      const useCasesHtml = (p.useCases || []).map(u => `
+        <li class="flex items-start gap-2 text-xs text-slate-700">
+          <i data-lucide="check" class="w-3.5 h-3.5 text-dream-green mt-0.5 shrink-0"></i>
+          <span>${u}</span>
+        </li>
+      `).join('');
+
+      document.getElementById('product-detail-content').innerHTML = `
+        <div class="flex items-start gap-4 mb-6">
+          <div class="w-24 h-24 rounded-xl bg-slate-50 p-2 border border-slate-200 shrink-0 flex items-center justify-center">
+            <img src="${p.imageUrl}" alt="${p.model}" class="max-h-20 max-w-full object-contain">
+          </div>
+          <div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-sky-50 text-dream-blue font-bold">${p.category} • ${p.subcategory}</span>
+            <h2 class="text-xl font-bold text-slate-950 mt-1">${p.model}</h2>
+            ${p.badge ? `<span class="inline-block mt-1 text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">${p.badge}</span>` : ''}
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-600 leading-relaxed mb-4">${p.shortDescription}</p>
+
+        <div class="mb-4">
+          <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">Teknik Özellikler</h3>
+          <div class="bg-slate-50 rounded-xl p-3 border border-slate-200/80">${specsHtml}</div>
+        </div>
+
+        ${p.useCases && p.useCases.length > 0 ? `
+          <div class="mb-5">
+            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">Kullanım Senaryoları</h3>
+            <ul class="space-y-1.5 bg-slate-50 rounded-xl p-3 border border-slate-200/80">${useCasesHtml}</ul>
+          </div>
+        ` : ''}
+
+        <div class="flex flex-col sm:flex-row items-center gap-3 pt-3 border-t border-slate-200">
+          <a href="iletisim.html" class="btn-hover-lift w-full sm:flex-1 py-3 rounded-xl bg-dream-blue text-white text-xs font-bold text-center shadow-md">
+            Bu Donanım İçin Proje Fiyatı Al
+          </a>
+          ${p.datasheetUrl ? `
+            <a href="${p.datasheetUrl}" target="_blank" rel="noopener" class="w-full sm:w-auto px-4 py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 text-center flex items-center justify-center gap-1.5">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>Datasheet</span>
+            </a>
+          ` : ''}
+        </div>
+      `;
+
+      document.getElementById('product-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

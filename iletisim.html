@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İletişim & Kurumsal Destek | Dream Telecom</title>
+  <meta name="description" content="Dream Telecom merkez ofis adresi, telefon numaraları, departman e-postaları ve iletişim formu.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'dream-blue': '#004A93',
+            'dream-blue-hover': '#003870',
+            'dream-blue-light': '#eaf2fa',
+            'dream-green': '#78C042',
+            'dream-green-dark': '#5fa52b',
+            'dream-green-light': '#f2f9ed',
+            'dream-teal': '#0082A6',
+            'dream-teal-light': '#e6f5f8',
+            'dream-gray': '#67737B',
+            'dream-dark': '#071530',
+            'dream-warm': '#FFF9EE',
+            'dream-warm-border': '#F7E7CD',
+            'dream-warm-text': '#7A5B28',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .nav-dropdown {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-item:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .btn-hover-lift {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-hover-lift:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 74, 147, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased font-sans relative">
+
+  <!-- ABSOLUTE VERTICAL GRID GUIDELINES -->
+  <div class="pointer-events-none fixed inset-0 z-30 mx-auto max-w-7xl px-5 sm:px-9 lg:px-16 flex justify-between">
+    <div class="h-full w-px bg-slate-200/70"></div>
+    <div class="h-full w-px bg-slate-200/70"></div>
+  </div>
+
+  <!-- TOP ANNOUNCEMENT BANNER -->
+  <div id="top-announcement" class="bg-dream-warm border-b border-dream-warm-border text-xs py-2 px-4 text-dream-warm-text font-medium relative z-50">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16 flex items-center justify-between">
+      <div class="flex items-center gap-2 mx-auto sm:mx-0">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-dream-green/20 text-dream-green-dark border border-dream-green/30">
+          STH LİSANSLI
+        </span>
+        <span>BTK Yetkili Telekom Operatörü • Online başvuru ile dakikalar içinde aktivasyon •</span>
+        <a href="#form" class="font-bold text-dream-blue hover:underline ml-1">Hemen Başvur →</a>
+      </div>
+      <button onclick="document.getElementById('top-announcement').style.display='none'" class="hidden sm:block text-slate-400 hover:text-slate-600 text-sm font-bold">✕</button>
+    </div>
+  </div>
+
+  <!-- UTILITY TOPBAR -->
+  <div class="bg-white border-b border-slate-100 text-xs text-slate-600 py-2 hidden sm:block relative z-40">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16 flex items-center justify-between">
+      <div class="flex items-center gap-6">
+        <a href="#form" class="flex items-center gap-1.5 text-dream-blue font-semibold hover:text-dream-blue-hover">
+          <i data-lucide="laptop" class="w-3.5 h-3.5"></i>
+          <span>Online Başvuru</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-slate-500">STH Lisanslı Kurumsal Telekomünikasyon Çözümleri</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="hakkimizda.html" class="hover:text-dream-blue transition-colors">Destek Portalı</a>
+        <a href="tel:02129299900" class="flex items-center gap-1.5 font-bold text-slate-900 hover:text-dream-blue">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-dream-green"></i>
+          <span>0212 929 99 00</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center py-2 shrink-0 group">
+          <img src="assets/logo.png" alt="Dream Telecom" class="h-10 sm:h-12 w-auto object-contain">
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-semibold text-slate-700">
+          <a href="hakkimizda.html" class="hover:text-dream-blue transition-colors">Kurumsal</a>
+          <a href="cozumler.html" class="hover:text-dream-blue transition-colors">Hizmetler</a>
+          <a href="urunler.html" class="hover:text-dream-blue transition-colors">Grandstream Donanım</a>
+          <a href="paketler.html" class="hover:text-dream-blue transition-colors">Paketler</a>
+          <a href="hakkimizda.html#referanslar" class="hover:text-dream-blue transition-colors">Referanslar</a>
+          <a href="iletisim.html" class="text-dream-blue font-bold">İletişim</a>
+        </nav>
+
+        <div class="hidden sm:flex items-center gap-4">
+          <a href="https://gdms.cloud" target="_blank" class="text-xs font-bold text-slate-700 hover:text-dream-blue flex items-center gap-1">
+            <span>Giriş</span><span class="text-xs text-slate-400">↗</span>
+          </a>
+          <a href="#form" class="btn-hover-lift px-5 py-2.5 rounded-full font-bold text-xs text-white bg-gradient-to-r from-dream-blue via-[#005da8] to-dream-teal shadow-md shadow-dream-blue/20 flex items-center gap-2">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-dream-green"></i>
+            <span>Online Başvuru</span>
+          </a>
+        </div>
+
+        <button id="mobile-toggle" class="lg:hidden p-2 text-slate-700 hover:text-dream-blue">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-5 space-y-3 shadow-xl">
+      <a href="index.html" class="block font-medium text-slate-700 hover:text-dream-blue">Ana Sayfa</a>
+      <a href="hakkimizda.html" class="block font-medium text-slate-700 hover:text-dream-blue">Kurumsal & Hakkımızda</a>
+      <a href="cozumler.html" class="block font-medium text-slate-700 hover:text-dream-blue">Telekomünikasyon Hizmetleri</a>
+      <a href="urunler.html" class="block font-medium text-slate-700 hover:text-dream-blue">Grandstream Ürün Kataloğu</a>
+      <a href="paketler.html" class="block font-medium text-slate-700 hover:text-dream-blue">Tarifeler & Paketler</a>
+      <a href="iletisim.html" class="block font-bold text-dream-blue">İletişim & Destek</a>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="py-14 bg-gradient-to-b from-slate-50 to-white border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16 text-center">
+      <span class="inline-block text-xs font-mono font-bold text-dream-blue uppercase tracking-wider mb-2">BİZE ULAŞIN</span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight mb-4">
+        İletişim & Kurumsal Destek
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
+        Sorularınız, ücretsiz keşif talepleriniz ve teknik destek için uzman ekibimizle doğrudan iletişime geçin.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTACT GRID -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+        
+        <!-- Contact Info Cards -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+              <div class="w-10 h-10 rounded-xl bg-dream-blue-light text-dream-blue flex items-center justify-center font-bold">
+                <i data-lucide="building" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm text-slate-900">Merkez Ofis</h3>
+                <p class="text-[11px] text-slate-500">Beylikdüzü / İstanbul</p>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>DREAM TELEKOMÜNİKASYON VE İLETİŞİM HİZMETLERİ SAN. TİC. LTD. ŞTİ.</strong><br>
+              Barbaros Hayrettin Paşa Mah. 1993 Sokak. No: 35 Papatya 2 Residence A Blok Daire: 70 Kat: 4 Beylikdüzü / İSTANBUL
+            </p>
+
+            <div class="pt-2 flex items-center gap-2 text-xs font-mono font-bold text-slate-900">
+              <i data-lucide="phone" class="w-4 h-4 text-dream-green"></i>
+              <span>Santral: 0 212 929 99 00</span>
+            </div>
+          </div>
+
+          <!-- Department Emails (From İLETİŞİM.html) -->
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <h4 class="font-bold text-xs uppercase tracking-wider text-slate-500">Departman E-Posta Kanalları</h4>
+            
+            <div class="space-y-3 text-xs font-mono">
+              <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg">
+                <span class="text-slate-600">Genel Bilgilendirme:</span>
+                <a href="mailto:info@dreamtelecom.com.tr" class="text-dream-blue font-bold hover:underline">info@dreamtelecom.com.tr</a>
+              </div>
+              <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg">
+                <span class="text-slate-600">Kurumsal Satış & Keşif:</span>
+                <a href="mailto:satis@dreamtelecom.com.tr" class="text-dream-blue font-bold hover:underline">satis@dreamtelecom.com.tr</a>
+              </div>
+              <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg">
+                <span class="text-slate-600">7/24 Teknik Destek & NOC:</span>
+                <a href="mailto:destek@dreamtelecom.com.tr" class="text-dream-green-dark font-bold hover:underline">destek@dreamtelecom.com.tr</a>
+              </div>
+              <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg">
+                <span class="text-slate-600">Arızalı Ürün Takip:</span>
+                <a href="mailto:takip@dreamtelecom.com.tr" class="text-slate-700 font-bold hover:underline">takip@dreamtelecom.com.tr</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Contact / Quote Form -->
+        <div id="form" class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/90 shadow-xl p-8">
+          <div class="mb-6">
+            <span class="text-xs font-mono font-bold text-dream-blue uppercase">HIZLI TEKLİF & KEŞİF TALEBİ</span>
+            <h2 class="text-2xl font-bold text-slate-950 mt-1">İletişim & Başvuru Formu</h2>
+            <p class="text-xs text-slate-500 mt-1">Formu doldurduktan sonra telekomünikasyon mühendisimiz 15 dakika içinde sizi arayacaktır.</p>
+          </div>
+
+          <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Adınız Soyadınız *</label>
+                <input type="text" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-dream-blue focus:ring-1 focus:ring-dream-blue">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Firma / Kurum Ünvanı *</label>
+                <input type="text" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-dream-blue focus:ring-1 focus:ring-dream-blue">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Telefon Numarası *</label>
+                <input type="tel" required placeholder="05__ ___ __ __" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-dream-blue focus:ring-1 focus:ring-dream-blue font-mono">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Kurumsal E-Posta *</label>
+                <input type="email" required placeholder="ad.soyad@sirketiniz.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-dream-blue focus:ring-1 focus:ring-dream-blue">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">İlgilendiğiniz Çözüm veya Donanım</label>
+              <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-dream-blue focus:ring-1 focus:ring-dream-blue bg-white">
+                <option>Grandstream UCM Serisi IP Santral & PBX</option>
+                <option>Bulut IP Sanal Santral Hizmeti</option>
+                <option>SIP Trunk & Sabit Numara Taşıma</option>
+                <option>Monites Yerli Bulut İzleme Yazılımı</option>
+                <option>CRM Çağrı Yönetimi Çözümleri</option>
+                <option>Grandstream Wi-Fi 7 / Switch Ağ Kurulumu</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Mesajınız / İhtiyaç Notları</label>
+              <textarea rows="4" placeholder="Kullanıcı sayısı, şube yapısı veya mevcut santraliniz hakkında detay ekleyebilirsiniz..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-dream-blue focus:ring-1 focus:ring-dream-blue"></textarea>
+            </div>
+
+            <button type="submit" class="btn-hover-lift w-full py-3.5 rounded-xl font-bold text-xs bg-dream-blue hover:bg-dream-blue-hover text-white shadow-lg flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4 text-dream-green"></i>
+              <span>Başvuruyu Gönder</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- MAP SECTION -->
+      <div class="rounded-2xl border border-slate-200 overflow-hidden bg-slate-50 p-6 text-center space-y-3">
+        <div class="flex items-center justify-center gap-2 text-dream-blue font-bold text-sm">
+          <i data-lucide="map-pin" class="w-4 h-4 text-dream-green"></i>
+          <span>Papatya 2 Residence A Blok Kat: 4 D: 70 Beylikdüzü / İSTANBUL</span>
+        </div>
+        <p class="text-xs text-slate-500">
+          Metrobüs Beylikdüzü Son Durak ve E-5 karayoluna 2 dakika mesafede yer alan merkez ofisimizi ziyaret edebilir, demo salonumuzda Grandstream ürünlerini canlı test edebilirsiniz.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TOAST -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 text-white px-5 py-3.5 rounded-xl shadow-2xl border border-slate-700 text-xs font-medium flex items-center gap-3">
+    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+    <span>Başvurunuz başarıyla alındı! Ekibimiz en kısa sürede iletişime geçecektir.</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-5 sm:px-9 lg:px-16 pt-16 pb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div class="lg:col-span-2 space-y-4">
+          <img src="assets/logo.png" alt="Dream Telecom" class="h-10 w-auto object-contain brightness-125">
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            DREAM TELEKOMÜNİKASYON VE İLETİŞİM HİZMETLERİ SANAYİ TİC. LTD. ŞTİ.<br>
+            STH Lisanslı Telekom Operatörü ve Grandstream Çözüm Ortağı.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase text-xs mb-3">Kurumsal</h4>
+          <ul class="space-y-2">
+            <li><a href="hakkimizda.html" class="hover:text-white">Hakkımızda</a></li>
+            <li><a href="hakkimizda.html#tecrube" class="hover:text-white">Aktif Tecrübe</a></li>
+            <li><a href="hakkimizda.html#banka" class="hover:text-white">Banka Hesapları</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase text-xs mb-3">Çözümler</h4>
+          <ul class="space-y-2">
+            <li><a href="cozumler.html#sanal-santral" class="hover:text-white">IP Sanal Santral</a></li>
+            <li><a href="cozumler.html#sip-trunk" class="hover:text-white">SIP Trunk</a></li>
+            <li><a href="urunler.html" class="hover:text-white">Grandstream Donanım</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase text-xs mb-3">NOC İletişim</h4>
+          <p class="text-white font-bold font-mono">0212 929 99 00</p>
+          <p class="text-[11px] text-slate-400 mt-1">destek@dreamtelecom.com.tr</p>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-slate-900 text-[11px] text-slate-500 flex justify-between">
+        <p>© 2026 DREAM TELEKOMÜNİKASYON LTD. ŞTİ.</p>
+        <span class="text-dream-green font-mono">BTK STH Lisanslı Operatör</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      const toggle = document.getElementById('mobile-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (toggle && menu) toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
+    });
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const toast = document.getElementById('toast');
+      toast.classList.remove('hidden');
+      e.target.reset();
+      setTimeout(() => toast.classList.add('hidden'), 4500);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary scratch and extraction files
+temp_grandstream/
+analyze_all.js
+detailed_catalog.js
+dump_all_pages.js
+dump_remaining.js
+extracted_catalog.json
+extract_content.js
+extract_info.js
+inspect_html.js
+update_products.js
