@@ -23,6 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 
+# Legacy scraped files & phase 1 static HTML
+DreamTelecom/
+cozumler.html
+hakkimizda.html
+iletisim.html
+paketler.html
+urunler.html
+
 # Temporary scratch and extraction files
 temp_grandstream/
 analyze_all.js
