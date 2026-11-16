@@ -15,42 +15,44 @@ export default function HomePage({ navigateTo, viewProductDetail, setActiveCateg
     <div className="bg-white">
       
       {/* 1. HERO SECTION: Grandstream Focused Corporate Hero */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden bg-gradient-to-b from-slate-50/80 via-white to-white">
+      <section className="relative pt-6 pb-12 sm:pt-12 sm:pb-20 lg:pt-20 lg:pb-28 overflow-hidden bg-gradient-to-b from-slate-50/80 via-white to-white">
         
         {/* Soft Ambient Glows matching Logo Colors */}
         <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-blue-100/40 via-teal-50/30 to-transparent rounded-full blur-3xl opacity-70"></div>
         <div className="pointer-events-none absolute top-40 right-10 w-72 h-72 bg-emerald-100/30 rounded-full blur-2xl"></div>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
           
-          {/* Partnership Badge */}
-          <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-xs">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#78C042] animate-pulse"></span>
-              <span className="text-xs font-bold text-slate-800 tracking-tight">DREAM TELECOM × GRANDSTREAM NETWORKS</span>
+          {/* Partnership Badge (Compact & elegant on mobile) */}
+          <div className="flex justify-center mb-4 sm:mb-6">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2.5 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white border border-slate-200/90 shadow-xs max-w-full">
+              <span className="w-2 h-2 rounded-full bg-[#78C042] animate-pulse shrink-0"></span>
+              <span className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-tight">
+                <span className="hidden sm:inline">DREAM TELECOM × </span>GRANDSTREAM
+              </span>
               <span className="text-slate-300">|</span>
-              <span className="text-xs font-semibold text-[#004A93]">Yetkili Kurumsal Çözüm Ortağı</span>
+              <span className="text-[11px] sm:text-xs font-semibold text-[#004A93]">Yetkili Çözüm Ortağı</span>
             </div>
           </div>
 
           {/* Main Headline */}
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.15] mb-6">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-snug sm:leading-[1.15] mb-3 sm:mb-6 px-1">
               Rüya Hızında İletişim & <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#004A93] via-[#0082A6] to-[#004A93]">
                 Profesyonel Grandstream
               </span> Altyapısı
             </h1>
             
-            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-xs sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto mb-6 sm:mb-10 px-2 sm:px-0">
               Lisans ücreti gerektirmeyen Grandstream UCM IP santralleri, masaüstü IP telefonlar, Wi-Fi 7 ağ çözümleri ve Dream Telecom'un 10 yıllık mühendislik tecrübesi ile işletmenizi geleceğe taşıyın.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 mb-8 sm:mb-14 w-full">
               <button 
                 onClick={() => navigateTo('iletisim')}
-                className="cursor-pointer w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm text-white bg-[#004A93] hover:bg-[#003870] shadow-lg shadow-[#004A93]/25 flex items-center justify-center gap-2.5 transition-all transform hover:-translate-y-0.5"
+                className="cursor-pointer w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#004A93] hover:bg-[#003870] shadow-md shadow-[#004A93]/20 flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5"
               >
                 <Zap className="w-4 h-4 text-[#78C042]" />
                 <span>Ücretsiz Altyapı Analizi & Teklif</span>
@@ -58,7 +60,7 @@ export default function HomePage({ navigateTo, viewProductDetail, setActiveCateg
 
               <button 
                 onClick={() => { setActiveCategory('Tümü'); navigateTo('urunler'); }}
-                className="cursor-pointer w-full sm:w-auto px-7 py-4 rounded-xl font-bold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-xs flex items-center justify-center gap-2 transition-all hover:border-slate-300"
+                className="cursor-pointer w-full sm:w-auto px-6 py-3 sm:px-7 sm:py-4 rounded-xl font-bold text-xs sm:text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-xs flex items-center justify-center gap-2 transition-all hover:border-slate-300"
               >
                 <Cpu className="w-4 h-4 text-[#0082A6]" />
                 <span>Grandstream Kataloğunu İncele</span>

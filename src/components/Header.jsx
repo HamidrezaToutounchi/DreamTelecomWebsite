@@ -19,27 +19,27 @@ export default function Header({ currentView, navigateTo, activeCategory, setAct
   return (
     <header className="sticky top-0 z-50 bg-white shadow-xs border-b border-slate-200">
       
-      {/* 1. Warm Top Announcement Bar (Mobile responsive, no clipping) */}
+      {/* 1. Warm Top Announcement Bar (Slim, single-line mobile, no squishing) */}
       {announcementVisible && (
-        <div className="bg-[#FFF9EE] border-b border-[#F7E7CD] text-[#7A5B28] text-xs py-2 px-4 font-medium transition-all">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-              <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded text-[11px] font-bold bg-[#78C042]/20 text-[#4c8720] border border-[#78C042]/40 tracking-wide">
+        <div className="bg-[#FFF9EE] border-b border-[#F7E7CD] text-[#7A5B28] text-[11px] sm:text-xs py-1.5 sm:py-2 px-3 sm:px-4 font-medium transition-all">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 truncate mx-auto sm:mx-0">
+              <span className="inline-flex items-center justify-center px-1.5 sm:px-2.5 py-0.5 rounded text-[10px] sm:text-[11px] font-bold bg-[#78C042]/20 text-[#4c8720] border border-[#78C042]/40 tracking-wide shrink-0">
                 GRANDSTREAM YETKİLİ
               </span>
-              <span className="text-slate-700">Kurumsal IP Santral, Bulut İletişim & Ağ Altyapısı Çözümleri</span>
+              <span className="truncate text-slate-700">Kurumsal IP Santral & Ağ Çözümleri</span>
               <span className="hidden md:inline text-slate-400">•</span>
               <button 
                 onClick={() => handleNav('iletisim')} 
-                className="font-bold text-[#004A93] hover:underline cursor-pointer inline-flex items-center gap-1"
+                className="font-bold text-[#004A93] hover:underline cursor-pointer shrink-0 ml-1 inline-flex items-center gap-1"
               >
-                <span>Hızlı Keşif Talebi</span>
+                <span>Hızlı Keşif</span>
                 <span aria-hidden="true">→</span>
               </button>
             </div>
             <button 
               onClick={() => setAnnouncementVisible(false)}
-              className="hidden sm:block text-slate-400 hover:text-slate-600 text-sm font-bold cursor-pointer p-1"
+              className="text-slate-400 hover:text-slate-600 text-xs font-bold cursor-pointer p-1 shrink-0"
               title="Kapat"
             >
               ✕
@@ -81,18 +81,18 @@ export default function Header({ currentView, navigateTo, activeCategory, setAct
       </div>
 
       {/* 3. Spacious Main Navigation Bar (Clean at 1024px, 1280px+) */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20 sm:h-22">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="flex items-center justify-between h-16 sm:h-20 lg:h-22">
           
           {/* Logo with enlarged, proud prominence */}
           <button 
             onClick={() => handleNav('home')} 
-            className="flex items-center py-2 shrink-0 cursor-pointer group"
+            className="flex items-center py-1 sm:py-2 shrink-0 cursor-pointer group"
           >
             <img 
               src="/assets/logo.png" 
               alt="Dream Telecom" 
-              className="h-12 sm:h-14 lg:h-16 w-auto object-contain transition-transform group-hover:scale-102"
+              className="h-10 sm:h-13 lg:h-16 w-auto object-contain transition-transform group-hover:scale-102"
               onError={(e) => { e.target.src = 'assets/logo.png'; }}
             />
           </button>
