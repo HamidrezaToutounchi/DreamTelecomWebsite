@@ -3,7 +3,10 @@ import { MapPin, Phone, Mail, Award, ArrowUpRight } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
 
 export default function Footer({ navigateTo, setActiveCategory }) {
-  const handleNav = (view, cat = null) => {
+  const handleNav = (view, cat = null, brand = null) => {
+    if (brand !== null && window.setProductBrandFilter) {
+      window.setProductBrandFilter(brand);
+    }
     if (cat !== null) setActiveCategory(cat);
     navigateTo(view);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -32,7 +35,7 @@ export default function Footer({ navigateTo, setActiveCategory }) {
 
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
               <strong className="text-white block font-semibold mb-1">{COMPANY_INFO.name}</strong>
-              Türkiye genelinde kurumsal IP Santral, Sanal Santral, Monites Bulut İzleme ve Grandstream yetkili donanım çözümleri ile 10 yılı aşkın süredir işletmelere kesintisiz haberleşme altyapısı sunar.
+              Türkiye genelinde kurumsal IP Santral, Sanal Santral, Monites Bulut İzleme ve Grandstream, Jabra ve Fanvil yetkili donanım çözümleri ile 10 yılı aşkın süredir işletmelere kesintisiz haberleşme altyapısı sunar.
             </p>
 
             <div className="space-y-2.5 text-xs sm:text-sm text-slate-300 pt-1">
@@ -51,7 +54,7 @@ export default function Footer({ navigateTo, setActiveCategory }) {
             <div className="pt-2">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-[#78C042]">
                 <Award className="w-4 h-4 text-[#78C042]" />
-                <span>Grandstream Certified Enterprise Partner</span>
+                <span>Grandstream • Jabra • Fanvil Yetkili Çözüm Sağlayıcısı</span>
               </div>
             </div>
           </div>
@@ -113,26 +116,41 @@ export default function Footer({ navigateTo, setActiveCategory }) {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('urunler')} className="text-slate-400 hover:text-white transition-colors cursor-pointer flex items-center gap-1">
-                  <span>Grandstream Donanımları</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#0082A6]" />
+                <button onClick={() => handleNav('paketler')} className="text-slate-400 hover:text-white transition-colors cursor-pointer">
+                  Hazır Çözüm Paketleri
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Departman E-Postaları */}
+          {/* Col 4: Ürün Portföyü */}
           <div className="space-y-4">
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider">Departmanlar</h4>
-            <ul className="space-y-3 text-xs sm:text-sm font-mono">
-              {COMPANY_INFO.departments.map((dept, idx) => (
-                <li key={idx}>
-                  <span className="text-slate-500 block text-[11px] font-sans">{dept.title}:</span>
-                  <a href={`mailto:${dept.email}`} className="text-slate-300 hover:text-[#78C042] transition-colors">
-                    {dept.email}
-                  </a>
-                </li>
-              ))}
+            <h4 className="font-bold text-white text-sm uppercase tracking-wider">Donanım & Ürünler</h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li>
+                <button onClick={() => handleNav('urunler', 'Tümü', 'Grandstream')} className="text-slate-400 hover:text-white transition-colors cursor-pointer flex items-center gap-1">
+                  <span>Grandstream Santral & Ağ</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#0082A6]" />
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('urunler', 'Tümü', 'Jabra')} className="text-slate-400 hover:text-white transition-colors cursor-pointer flex items-center gap-1">
+                  <span>Jabra Video Bar & Kulaklık</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#D97706]" />
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('urunler', 'Tümü', 'Fanvil')} className="text-slate-400 hover:text-white transition-colors cursor-pointer flex items-center gap-1">
+                  <span>Fanvil SIP Telefon & İnterkom</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#DC2626]" />
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('urunler', 'Tümü')} className="text-[#78C042] font-semibold hover:underline transition-colors cursor-pointer flex items-center gap-1">
+                  <span>Tüm Ürün Kataloğu (73 Model)</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#78C042]" />
+                </button>
+              </li>
             </ul>
           </div>
 

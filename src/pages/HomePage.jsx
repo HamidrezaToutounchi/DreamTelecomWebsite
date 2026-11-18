@@ -8,8 +8,11 @@ import { PRODUCTS } from '../data/products';
 import PartnerMarquee from '../components/PartnerMarquee';
 
 export default function HomePage({ navigateTo, viewProductDetail, setActiveCategory }) {
-  // Grab 4 featured Grandstream products for the curated spotlight
-  const spotlightProducts = PRODUCTS.filter(p => p.featured).slice(0, 4);
+  // Grab curated flagship products across Grandstream, Jabra and Fanvil
+  const gsProducts = PRODUCTS.filter(p => p.brand === 'Grandstream' && p.featured).slice(0, 2);
+  const jabraProducts = PRODUCTS.filter(p => p.brand === 'Jabra' && p.featured).slice(0, 2);
+  const fanvilProducts = PRODUCTS.filter(p => p.brand === 'Fanvil' && p.featured).slice(0, 2);
+  const spotlightProducts = [...gsProducts, ...jabraProducts, ...fanvilProducts];
 
   return (
     <div className="bg-white">
@@ -379,13 +382,13 @@ export default function HomePage({ navigateTo, viewProductDetail, setActiveCateg
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#eaf2fa] text-[#004A93] text-xs font-mono font-bold mb-2">
                 <Cpu className="w-3.5 h-3.5" />
-                <span>GRANDSTREAM.COM.TR RESMİ PORTFÖYÜ</span>
+                <span>GRANDSTREAM • JABRA • FANVIL KURUMSAL PORTFÖYÜ</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
-                Öne Çıkan Grandstream Donanımları
+                Öne Çıkan Kurumsal Donanım & Çözümler
               </h2>
               <p className="text-sm text-slate-600 mt-1">
-                Lisanssız UCM IP santraller, yeni nesil Wi-Fi 7 erişim noktaları ve renkli ekranlı masaüstü telefonlar.
+                Lisanssız Grandstream IP santralleri, Jabra 180° akıllı video barları ve Fanvil kurumsal SIP telefonları.
               </p>
             </div>
 
@@ -399,17 +402,25 @@ export default function HomePage({ navigateTo, viewProductDetail, setActiveCateg
           </div>
 
           {/* 4 Featured Products Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {spotlightProducts.map((p) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {spotlightProducts.map((p) => {
+              let brandBadgeClass = 'bg-sky-50 text-[#004A93] border-sky-200';
+              if (p.brand === 'Jabra') brandBadgeClass = 'bg-amber-50 text-amber-800 border-amber-200';
+              else if (p.brand === 'Fanvil') brandBadgeClass = 'bg-rose-50 text-rose-800 border-rose-200';
+
+              return (
               <div 
                 key={p.id}
                 className="p-5 rounded-2xl border border-slate-200 bg-white hover:border-[#004A93]/50 hover:shadow-xl transition-all flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex flex-wrap items-center justify-between gap-1.5 mb-3">
-                    <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 font-semibold leading-normal">
-                      {p.subcategory}
-                    </span>
+                    <span className={`text-[11px] font-bold px-2 py-0.5 rounded-md border font-mono ${brandBadgeClass}`}>
+                        {p.brand}
+                      </span>
+                      <span className="text-xs font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-medium">
+                        {p.subcategory}
+                      </span>
                     {p.badge && (
                       <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-[#eaf2fa] text-[#004A93] border border-[#004A93]/20 leading-normal">
                         {p.badge}
@@ -451,9 +462,9 @@ export default function HomePage({ navigateTo, viewProductDetail, setActiveCateg
                   </button>
                 </div>
               </div>
-            ))}
+            );
+            })}
           </div>
-
         </div>
       </section>
 
