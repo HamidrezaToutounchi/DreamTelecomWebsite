@@ -111,7 +111,7 @@ export default function Header({ currentView, navigateTo, activeCategory, setAct
               <button 
                 onClick={() => handleNav('hakkimizda')}
                 className={`flex items-center gap-1 transition-colors cursor-pointer ${
-                  ['hakkimizda', 'aktif-tecrube', 'sistem-guvenlik', 'banka-hesaplari'].includes(currentView) 
+                  ['hakkimizda', 'aktif-tecrube', 'sistem-guvenlik', 'banka-hesaplari', 'gizlilik-ve-guvenlik'].includes(currentView) 
                     ? 'text-[#004A93] font-bold' 
                     : 'hover:text-[#004A93]'
                 }`}
@@ -148,6 +148,16 @@ export default function Header({ currentView, navigateTo, activeCategory, setAct
                 >
                   <div className="font-bold text-slate-900">Banka Hesap Bilgileri</div>
                   <div className="text-[11px] text-slate-500">Garanti BBVA ve İş Bankası IBAN</div>
+                </button>
+                <button 
+                  onClick={() => handleNav('gizlilik-ve-guvenlik')} 
+                  className={`w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-50 block cursor-pointer transition-colors ${['gizlilik-ve-guvenlik', 'kvkk'].includes(currentView) ? 'bg-[#eaf2fa] text-[#004A93]' : ''}`}
+                >
+                  <div className="font-bold text-slate-900 flex items-center justify-between">
+                    <span>Gizlilik ve Güvenlik</span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold uppercase">KVKK</span>
+                  </div>
+                  <div className="text-[11px] text-slate-500">KVKK aydınlatma ve gizlilik politikası</div>
                 </button>
               </div>
             </div>

@@ -314,6 +314,23 @@ export default function ContactPage() {
                   ></textarea>
                 </div>
 
+                <div className="flex items-start gap-2 pt-1 text-[11px] text-slate-500">
+                  <input 
+                    type="checkbox" 
+                    id="kvkk-contact" 
+                    defaultChecked 
+                    required 
+                    className="mt-0.5 rounded border-slate-300 text-[#004A93] focus:ring-[#004A93]" 
+                  />
+                  <label htmlFor="kvkk-contact" className="leading-tight">
+                    <a href="#gizlilik-ve-guvenlik" target="_blank" rel="noopener noreferrer" className="text-[#004A93] font-semibold underline hover:text-[#003870]">
+                      KVKK Aydınlatma Metni
+                    </a> ve <a href="#gizlilik-ve-guvenlik" target="_blank" rel="noopener noreferrer" className="text-[#004A93] font-semibold underline hover:text-[#003870]">
+                      Gizlilik Politikası
+                    </a>'nı okudum, kişisel verilerimin işlenmesini onaylıyorum.
+                  </label>
+                </div>
+
                 <button 
                   type="submit" 
                   disabled={isSubmitting}

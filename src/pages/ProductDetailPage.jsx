@@ -389,6 +389,23 @@ export default function ProductDetailPage({ product, onBack, onInquire }) {
                 ></textarea>
               </div>
 
+              <div className="flex items-start gap-2 pt-1 text-[11px] text-slate-300">
+                <input 
+                  type="checkbox" 
+                  id="kvkk-detail" 
+                  defaultChecked 
+                  required 
+                  className="mt-0.5 rounded border-white/20 bg-white/10 text-[#78C042] focus:ring-[#78C042]" 
+                />
+                <label htmlFor="kvkk-detail" className="leading-tight">
+                  <a href="#gizlilik-ve-guvenlik" target="_blank" rel="noopener noreferrer" className="text-[#78C042] font-semibold underline hover:text-emerald-400">
+                    KVKK Aydınlatma Metni
+                  </a> ve <a href="#gizlilik-ve-guvenlik" target="_blank" rel="noopener noreferrer" className="text-[#78C042] font-semibold underline hover:text-emerald-400">
+                    Gizlilik Bildirimi
+                  </a>'ni okudum, iletişim verilerimin teklif amacıyla işlenmesini onaylıyorum.
+                </label>
+              </div>
+
               <button 
                 type="submit"
                 disabled={isSubmitting}

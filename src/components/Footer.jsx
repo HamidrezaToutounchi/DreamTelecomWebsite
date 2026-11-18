@@ -88,6 +88,12 @@ export default function Footer({ navigateTo, setActiveCategory }) {
                   Müşteri Referansları
                 </button>
               </li>
+              <li>
+                <button onClick={() => handleNav('gizlilik-ve-guvenlik')} className="text-slate-400 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5">
+                  <span>Gizlilik ve KVKK Metni</span>
+                  <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/20 text-emerald-400 font-mono">6698</span>
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -160,7 +166,7 @@ export default function Footer({ navigateTo, setActiveCategory }) {
         <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} {COMPANY_INFO.name} Tüm hakları saklıdır.</p>
           <div className="flex items-center gap-6">
-            <button onClick={() => handleNav('sistem-guvenlik')} className="hover:text-slate-400 cursor-pointer">Gizlilik ve Güvenlik</button>
+            <button onClick={() => handleNav('gizlilik-ve-guvenlik')} className="hover:text-white cursor-pointer font-medium text-slate-400">Gizlilik ve Güvenlik (KVKK)</button>
             <button onClick={() => handleNav('sistem-guvenlik')} className="hover:text-slate-400 cursor-pointer">Bilgi Güvenliği</button>
             <button onClick={() => handleNav('iletisim')} className="text-[#78C042] hover:underline cursor-pointer font-semibold">İletişim & Destek</button>
           </div>

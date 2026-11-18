@@ -16,6 +16,7 @@ import HakkimizdaPage from './pages/kurumsal/HakkimizdaPage';
 import AktifTecrubePage from './pages/kurumsal/AktifTecrubePage';
 import SistemGuvenlikPage from './pages/kurumsal/SistemGuvenlikPage';
 import BankaHesaplariPage from './pages/kurumsal/BankaHesaplariPage';
+import GizlilikGuvenlikPage from './pages/kurumsal/GizlilikGuvenlikPage';
 
 // Dedicated Hizmetler Pages
 import IpSanalSantralPage from './pages/hizmetler/IpSanalSantralPage';
@@ -31,6 +32,9 @@ const VALID_VIEWS = [
   'aktif-tecrube',
   'sistem-guvenlik',
   'banka-hesaplari',
+  'gizlilik-ve-guvenlik',
+  'kvkk',
+  'gizlilik',
   'ip-sanal-santral',
   'sip-trunk',
   'monites',
@@ -125,6 +129,9 @@ export default function App() {
         )}
         {currentView === 'banka-hesaplari' && (
           <BankaHesaplariPage navigateTo={navigateTo} />
+        )}
+        {(['gizlilik-ve-guvenlik', 'kvkk', 'gizlilik'].includes(currentView)) && (
+          <GizlilikGuvenlikPage navigateTo={navigateTo} />
         )}
 
         {/* Dedicated Hizmetler Pages */}
