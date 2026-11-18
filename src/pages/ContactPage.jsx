@@ -1,12 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import { MapPin, Phone, Mail, Send, CheckCircle2, Clock, CreditCard, Shield, ExternalLink, Loader2, AlertCircle } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  MapPin, 
+  Phone, 
+  Mail, 
+  Send, 
+  CheckCircle2, 
+  Clock, 
+  ShieldCheck, 
+  Loader2, 
+  AlertCircle,
+  FileText,
+  Compass,
+  Monitor,
+  HelpCircle
+} from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
+import TurnstileWidget, { TURNSTILE_SITE_KEY } from '../components/TurnstileWidget';
+
+const REQUEST_TYPES = [
+  { id: 'teklif', label: 'Fiyat Teklifi Al', icon: FileText, desc: 'Toplu donanım veya santral lisans teklifi' },
+  { id: 'kesif', label: 'Yerinde Keşif Talebi', icon: Compass, desc: 'Ofis ve bina altyapısı keşif randevusu' },
+  { id: 'demo', label: 'Demo Cihaz Talebi', icon: Monitor, desc: 'Jabra, Grandstream ve Fanvil test cihazı' },
+  { id: 'bilgi', label: 'Ürün & Çözüm Danışmanlığı', icon: HelpCircle, desc: 'Mühendislerimizden teknik danışmanlık' }
+];
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [refCode, setRefCode] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  
+  const [requestType, setRequestType] = useState('teklif');
+  const [kvkkAccepted, setKvkkAccepted] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(false);
+
+  // Turnstile state
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileReady, setTurnstileReady] = useState(!TURNSTILE_SITE_KEY);
+  const turnstileRef = useRef(null);
+
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -33,8 +65,19 @@ export default function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setErrorMessage('');
+
+    if (!kvkkAccepted) {
+      setErrorMessage('Lütfen devam etmek için KVKK Aydınlatma Metni ve Gizlilik Politikasını onaylayın.');
+      return;
+    }
+
+    if (!turnstileToken && !turnstileReady) {
+      setErrorMessage('Güvenlik doğrulaması henüz tamamlanmadı, lütfen birkaç saniye bekleyin.');
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch('/api/leads', {
@@ -44,35 +87,52 @@ export default function ContactPage() {
           Accept: 'application/json'
         },
         body: JSON.stringify({
-          requestType: 'teklif',
+          requestType,
           fullName: formData.name.trim(),
           company: formData.company.trim(),
           phone: formData.phone.trim(),
           email: formData.email.trim(),
           selectedProduct: formData.service,
           message: formData.message.trim() || 'İletişim formundan talep.',
-          kvkkAccepted: true,
+          kvkkAccepted: Boolean(kvkkAccepted),
+          marketingConsent: Boolean(marketingConsent),
           kvkkVersion: 'v1',
-          website: formData.website
+          website: formData.website,
+          ...(turnstileToken ? { turnstileToken } : {})
         })
       });
 
-      const data = await response.json().catch(() => null);
-
-      if (response.ok && data?.ok) {
-        setRefCode(data.refCode || '');
-        setSubmitted(true);
-      } else {
-        // Fallback for standalone/offline dev demo
-        setRefCode('DRM-' + Math.floor(100000 + Math.random() * 900000));
-        setSubmitted(true);
+      let data = null;
+      try {
+        data = await response.json();
+      } catch (_jsonErr) {
+        data = null;
       }
-    } catch (_err) {
-      // Fallback grace
-      setRefCode('DRM-' + Math.floor(100000 + Math.random() * 900000));
+
+      if (response.status === 429) {
+        setErrorMessage(
+          data?.error || 'Çok fazla talep gönderdiniz. Lütfen bir süre sonra tekrar deneyin.'
+        );
+        return;
+      }
+
+      if (!response.ok || !data || data.ok !== true || !data.refCode) {
+        setErrorMessage(
+          data?.error || 'Talebiniz gönderilirken bir hata oluştu. Lütfen alanları kontrol edip tekrar deneyin.'
+        );
+        return;
+      }
+
+      // Success screen ONLY when response.ok && data.ok && data.refCode
+      setRefCode(data.refCode);
       setSubmitted(true);
+    } catch (_networkErr) {
+      setErrorMessage(`Talebiniz iletilemedi, lütfen tekrar deneyin veya bizi arayın: ${COMPANY_INFO.formattedPhone}`);
     } finally {
       setIsSubmitting(false);
+      if (turnstileRef.current) {
+        turnstileRef.current.reset();
+      }
     }
   };
 
@@ -109,12 +169,12 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm text-slate-900">Genel Merkez & Demo Salonu</h3>
-                  <p className="text-[11px] text-slate-500">Beylikdüzü / İstanbul</p>
+                  <h3 className="font-bold text-slate-900 text-sm sm:text-base">Genel Merkez & Demo Salonu</h3>
+                  <span className="text-xs text-slate-500">İstanbul / Beylikdüzü</span>
                 </div>
               </div>
 
-              <div className="text-xs sm:text-sm text-slate-600 leading-relaxed space-y-2">
+              <div className="text-xs sm:text-sm text-slate-600 leading-relaxed space-y-1">
                 <strong className="text-slate-900 block font-semibold">{COMPANY_INFO.name}</strong>
                 <p>{COMPANY_INFO.address}</p>
               </div>
@@ -159,30 +219,39 @@ export default function ContactPage() {
 
           </div>
 
-          {/* Form */}
-          <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200/90 shadow-xl p-8 sm:p-10">
+          {/* Form Container */}
+          <div className="lg:col-span-7 bg-slate-50/70 p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
             <div className="mb-6">
-              <span className="text-xs font-mono font-bold text-[#004A93] uppercase">HIZLI TEKLİF & DANIŞMANLIK</span>
-              <h2 className="text-2xl font-bold text-slate-950 mt-1">İletişim & Başvuru Formu</h2>
-              <p className="text-xs text-slate-500 mt-1">Formu ilettikten sonra uzman telekomünikasyon mühendisimiz en kısa sürede sizi arayacaktır.</p>
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#78C042]">HIZLI DÖNÜŞ FORMU</span>
+              <h3 className="text-2xl font-bold text-slate-900 mt-1">Kurumsal Talebinizi İletin</h3>
+              <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                Formu ilettiğinizde telekomünikasyon mühendisimiz talebinizi inceleyerek 15 dakika içinde tarafınıza dönüş yapacaktır.
+              </p>
             </div>
 
             {submitted ? (
-              <div className="p-8 bg-emerald-50 rounded-2xl border border-emerald-200 text-center space-y-3">
-                <CheckCircle2 className="w-10 h-10 text-[#78C042] mx-auto" />
-                <h3 className="text-base font-bold text-slate-900">Talebiniz Başarıyla Alındı!</h3>
+              <div className="p-8 rounded-2xl bg-white border border-emerald-300 text-center space-y-4 shadow-sm">
+                <CheckCircle2 className="w-12 h-12 text-[#78C042] mx-auto animate-bounce" />
+                <h4 className="font-extrabold text-slate-900 text-xl">Talebiniz Başarıyla Alındı!</h4>
+                
                 {refCode && (
-                  <div className="inline-block px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 font-mono text-xs font-bold border border-emerald-300">
-                    Takip Kodunuz: {refCode}
+                  <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200 inline-block font-mono text-xs sm:text-sm text-emerald-800 font-bold">
+                    Referans / Takip Kodunuz: <span className="text-slate-900">{refCode}</span>
                   </div>
                 )}
-                <p className="text-xs text-slate-600 max-w-sm mx-auto">
-                  Müşteri temsilcimiz başvurunuzu inceleyip en kısa sürede sizinle iletişime geçecektir.
+
+                <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                  Talebiniz ilgili departmanımıza ve mühendislik masamıza iletilmiştir. Uzman ekibimiz <strong>{formData.phone}</strong> veya <strong>{formData.email}</strong> üzerinden sizinle iletişime geçecektir.
                 </p>
+
                 <div className="pt-2">
-                  <button
+                  <button 
                     onClick={() => {
                       setSubmitted(false);
+                      setRefCode('');
+                      setErrorMessage('');
+                      setKvkkAccepted(false);
+                      setMarketingConsent(false);
                       setFormData({
                         name: '',
                         company: '',
@@ -202,9 +271,9 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 {errorMessage && (
-                  <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs rounded-xl flex items-center gap-2">
-                    <AlertCircle className="w-4 h-4 shrink-0 text-rose-500" />
-                    <span>{errorMessage}</span>
+                  <div className="p-3.5 bg-rose-50 border border-rose-200 text-rose-700 text-xs sm:text-sm rounded-xl flex items-start gap-2.5">
+                    <AlertCircle className="w-4 h-4 shrink-0 text-rose-600 mt-0.5" />
+                    <span className="leading-relaxed">{errorMessage}</span>
                   </div>
                 )}
 
@@ -219,7 +288,41 @@ export default function ContactPage() {
                   autoComplete="off" 
                 />
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* 1. Request Type Selector */}
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-2">
+                    Talep Türü Seçiniz *
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {REQUEST_TYPES.map(type => {
+                      const Icon = type.icon;
+                      const isSelected = requestType === type.id;
+                      return (
+                        <button
+                          key={type.id}
+                          type="button"
+                          onClick={() => setRequestType(type.id)}
+                          className={`cursor-pointer p-3 rounded-xl border text-left transition-all flex items-start gap-2.5 ${
+                            isSelected 
+                              ? 'bg-[#004A93] text-white border-[#004A93] shadow-sm ring-2 ring-[#004A93]/20' 
+                              : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                          }`}
+                        >
+                          <Icon className={`w-4 h-4 shrink-0 mt-0.5 ${isSelected ? 'text-[#78C042]' : 'text-[#004A93]'}`} />
+                          <div>
+                            <span className="block font-bold text-xs leading-tight">{type.label}</span>
+                            <span className={`block text-[10px] mt-0.5 leading-tight ${isSelected ? 'text-slate-200' : 'text-slate-500'}`}>
+                              {type.desc}
+                            </span>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* 2. Personal & Company Info */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1">Adınız Soyadınız *</label>
                     <input 
@@ -228,7 +331,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Ad Soyad"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93] bg-white"
                     />
                   </div>
                   <div>
@@ -239,7 +342,7 @@ export default function ContactPage() {
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="Firma Adı"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93] bg-white"
                     />
                   </div>
                 </div>
@@ -253,7 +356,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="05XX XXX XX XX"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93] font-mono"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93] font-mono bg-white"
                     />
                   </div>
                   <div>
@@ -264,11 +367,12 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="ad.soyad@sirketiniz.com"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93] bg-white"
                     />
                   </div>
                 </div>
 
+                {/* 3. Product / Service Selection */}
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1">İlgilendiğiniz Çözüm veya Donanım</label>
                   <select 
@@ -303,6 +407,7 @@ export default function ContactPage() {
                   </select>
                 </div>
 
+                {/* 4. Notes / Message */}
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1">Mesajınız / İhtiyaç Notları</label>
                   <textarea 
@@ -310,41 +415,67 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Talep ettiğiniz dahili hat sayısı, cihaz adetleri veya toplantı odası büyüklüğü hakkında bilgi verin..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93] bg-white"
                   ></textarea>
                 </div>
 
-                <div className="flex items-start gap-2 pt-1 text-[11px] text-slate-500">
+                {/* 5. KVKK Mandatory Consent (NO defaultChecked) */}
+                <div className="flex items-start gap-2.5 pt-1 text-xs text-slate-600">
                   <input 
                     type="checkbox" 
                     id="kvkk-contact" 
-                    defaultChecked 
+                    checked={kvkkAccepted}
+                    onChange={(e) => setKvkkAccepted(e.target.checked)}
                     required 
-                    className="mt-0.5 rounded border-slate-300 text-[#004A93] focus:ring-[#004A93]" 
+                    className="mt-0.5 rounded border-slate-300 text-[#004A93] focus:ring-[#004A93] cursor-pointer" 
                   />
-                  <label htmlFor="kvkk-contact" className="leading-tight">
+                  <label htmlFor="kvkk-contact" className="leading-snug cursor-pointer text-[11px] sm:text-xs">
                     <a href="#gizlilik-ve-guvenlik" target="_blank" rel="noopener noreferrer" className="text-[#004A93] font-semibold underline hover:text-[#003870]">
                       KVKK Aydınlatma Metni
                     </a> ve <a href="#gizlilik-ve-guvenlik" target="_blank" rel="noopener noreferrer" className="text-[#004A93] font-semibold underline hover:text-[#003870]">
                       Gizlilik Politikası
-                    </a>'nı okudum, kişisel verilerimin işlenmesini onaylıyorum.
+                    </a>'nı okudum, kişisel verilerimin işlenmesini onaylıyorum. *
                   </label>
                 </div>
 
+                {/* 6. Optional Marketing Consent */}
+                <div className="flex items-start gap-2.5 text-xs text-slate-500">
+                  <input 
+                    type="checkbox" 
+                    id="marketing-contact" 
+                    checked={marketingConsent}
+                    onChange={(e) => setMarketingConsent(e.target.checked)}
+                    className="mt-0.5 rounded border-slate-300 text-[#004A93] focus:ring-[#004A93] cursor-pointer" 
+                  />
+                  <label htmlFor="marketing-contact" className="leading-snug cursor-pointer text-[11px] sm:text-xs">
+                    Dream Telecom'un sunduğu kampanya, ürün ve hizmetlere ilişkin ticari elektronik ileti (SMS ve e-posta) almayı kabul ediyorum. (İsteğe bağlı)
+                  </label>
+                </div>
+
+                {/* 7. Cloudflare Turnstile Widget Container */}
+                <TurnstileWidget 
+                  ref={turnstileRef}
+                  onTokenChange={setTurnstileToken}
+                  onReadyChange={setTurnstileReady}
+                />
+
+                {/* 8. Submit Button */}
                 <button 
                   type="submit" 
-                  disabled={isSubmitting}
-                  className="cursor-pointer w-full py-4 rounded-xl bg-[#004A93] hover:bg-[#003870] text-white font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 disabled:opacity-70"
+                  disabled={isSubmitting || !kvkkAccepted || (!turnstileToken && !turnstileReady)}
+                  className="cursor-pointer w-full py-4 rounded-xl bg-[#004A93] hover:bg-[#003870] text-white font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin text-white" />
                       <span>Başvurunuz İletiliyor...</span>
                     </>
+                  ) : !turnstileToken && !turnstileReady ? (
+                    <span>Güvenlik Doğrulaması Hazırlanıyor...</span>
                   ) : (
                     <>
                       <Send className="w-4 h-4 text-[#78C042]" />
-                      <span>Teklif & Başvuru Talebini Gönder</span>
+                      <span>{REQUEST_TYPES.find(r => r.id === requestType)?.label || 'Talebi Gönder'}</span>
                     </>
                   )}
                 </button>

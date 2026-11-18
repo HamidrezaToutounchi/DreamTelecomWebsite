@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { ArrowLeft, Download, ExternalLink, Check, ShieldCheck, Cpu, Send, CheckCircle2, Loader2, AlertCircle, Sparkles } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
+import TurnstileWidget, { TURNSTILE_SITE_KEY } from '../components/TurnstileWidget';
 
 export default function ProductDetailPage({ product, onBack, onInquire }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [refCode, setRefCode] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  
+  const [kvkkAccepted, setKvkkAccepted] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(false);
+
+  // Turnstile state
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileReady, setTurnstileReady] = useState(!TURNSTILE_SITE_KEY);
+  const turnstileRef = useRef(null);
+
   const [formData, setFormData] = useState({ 
     name: '', 
     company: '', 
@@ -28,7 +38,7 @@ export default function ProductDetailPage({ product, onBack, onInquire }) {
   }
 
   // Brand-specific colors
-  let brandBadgeClass = 'bg-sky-50 text-[#004A93] border-sky-200';
+  let brandBadgeClass = 'bg-[#eaf2fa] text-[#004A93] border-blue-200';
   let brandColorText = 'text-[#004A93]';
   if (product.brand === 'Jabra') {
     brandBadgeClass = 'bg-amber-50 text-amber-800 border-amber-200';
@@ -40,8 +50,19 @@ export default function ProductDetailPage({ product, onBack, onInquire }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setErrorMessage('');
+
+    if (!kvkkAccepted) {
+      setErrorMessage('Lütfen devam etmek için KVKK Aydınlatma Metnini onaylayın.');
+      return;
+    }
+
+    if (!turnstileToken && !turnstileReady) {
+      setErrorMessage('Güvenlik doğrulaması henüz tamamlanmadı, lütfen birkaç saniye bekleyin.');
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch('/api/leads', {
@@ -58,28 +79,45 @@ export default function ProductDetailPage({ product, onBack, onInquire }) {
           email: formData.email.trim(),
           selectedProduct: `${product.brand} ${product.model}`,
           message: formData.note.trim() || 'Ürün detay sayfasından hızlı fiyat teklifi talebi.',
-          kvkkAccepted: true,
+          kvkkAccepted: Boolean(kvkkAccepted),
+          marketingConsent: Boolean(marketingConsent),
           kvkkVersion: 'v1',
-          website: formData.website
+          website: formData.website,
+          ...(turnstileToken ? { turnstileToken } : {})
         })
       });
 
-      const data = await response.json().catch(() => null);
-
-      if (response.ok && data?.ok) {
-        setRefCode(data.refCode || '');
-        setFormSubmitted(true);
-      } else {
-        // Fallback for standalone/offline dev demo
-        setRefCode('DRM-' + Math.floor(100000 + Math.random() * 900000));
-        setFormSubmitted(true);
+      let data = null;
+      try {
+        data = await response.json();
+      } catch (_jsonErr) {
+        data = null;
       }
-    } catch (_err) {
-      // Fallback grace
-      setRefCode('DRM-' + Math.floor(100000 + Math.random() * 900000));
+
+      if (response.status === 429) {
+        setErrorMessage(
+          data?.error || 'Çok fazla talep gönderdiniz. Lütfen bir süre sonra tekrar deneyin.'
+        );
+        return;
+      }
+
+      if (!response.ok || !data || data.ok !== true || !data.refCode) {
+        setErrorMessage(
+          data?.error || 'Talebiniz gönderilirken bir hata oluştu. Lütfen alanları kontrol edip tekrar deneyin.'
+        );
+        return;
+      }
+
+      // Success screen ONLY when response.ok && data.ok && data.refCode
+      setRefCode(data.refCode);
       setFormSubmitted(true);
+    } catch (_networkErr) {
+      setErrorMessage(`Talebiniz iletilemedi, lütfen tekrar deneyin veya bizi arayın: ${COMPANY_INFO.formattedPhone}`);
     } finally {
       setIsSubmitting(false);
+      if (turnstileRef.current) {
+        turnstileRef.current.reset();
+      }
     }
   };
 
@@ -98,175 +136,116 @@ export default function ProductDetailPage({ product, onBack, onInquire }) {
           </button>
 
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs text-slate-500 font-mono">
-            <span>Katalog</span>
+          <div className="flex items-center gap-2 text-xs text-slate-500">
+            <span className="hover:text-slate-900 cursor-pointer" onClick={onBack}>Ürünler</span>
             <span>/</span>
-            <span className={`font-bold ${brandColorText}`}>{product.brand}</span>
+            <span className="font-semibold text-slate-700">{product.brand}</span>
             <span>/</span>
-            <span className="text-slate-700">{product.category}</span>
-            <span>/</span>
-            <span className="text-slate-900 font-bold truncate max-w-[200px]">{product.model}</span>
+            <span className="text-[#004A93] font-bold">{product.model}</span>
           </div>
         </div>
 
-        {/* Product Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
+        {/* Main Product Hero Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
           
-          {/* Product Image Card */}
-          <div className="lg:col-span-5 bg-gradient-to-b from-slate-50 to-white rounded-3xl border border-slate-200 p-8 flex flex-col items-center justify-center relative shadow-sm">
-            <div className="absolute top-4 left-4 flex items-center gap-2">
-              <span className={`text-xs font-bold px-3 py-1 rounded-full border ${brandBadgeClass}`}>
-                {product.brand}
-              </span>
-              {product.badge && (
-                <span className="text-xs font-bold px-3 py-1 rounded-full bg-slate-900 text-white shadow-xs">
-                  {product.badge}
+          {/* Left Column: Product Visuals */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="relative rounded-3xl bg-slate-50 border border-slate-200 p-8 flex items-center justify-center min-h-[380px] shadow-sm overflow-hidden group">
+              
+              {/* Brand Label Badge */}
+              <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
+                <span className={`text-[11px] font-extrabold uppercase px-3 py-1 rounded-full border shadow-xs ${brandBadgeClass}`}>
+                  {product.brand}
                 </span>
-              )}
-            </div>
-            
-            <img 
-              src={product.imageUrl} 
-              alt={product.model}
-              className="max-h-72 w-auto object-contain my-8 transition-transform hover:scale-105 duration-300"
-              onError={(e) => { 
-                e.target.src = product.brand === 'Jabra' 
-                  ? 'https://assets2.jabra.com/9/e/7/0/9e70ea511c911cf658d575dfa8e97f5ef6e58b1a_50_Black_Front_180_Screen_01.png'
-                  : 'https://www.grandstream.com/hubfs/Email%20Assets%20Q4%202020/UCM6300_series.png'; 
-              }}
-            />
+                <span className="text-[11px] font-medium text-slate-500 bg-white/80 backdrop-blur-xs px-2.5 py-1 rounded-full border border-slate-200">
+                  {product.category}
+                </span>
+              </div>
 
-            <div className="w-full pt-4 border-t border-slate-200 flex items-center justify-around text-xs font-mono text-slate-600">
-              <span className="flex items-center gap-1">
-                <Cpu className={`w-3.5 h-3.5 ${brandColorText}`} /> 
-                <span>Orijinal {product.brand}</span>
-              </span>
-              <span className="text-slate-300">•</span>
-              <span className="flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#78C042]" /> 
-                <span>2 Yıl Resmi Garanti</span>
-              </span>
+              {/* Product Image */}
+              <img 
+                src={product.image} 
+                alt={`${product.brand} ${product.model}`} 
+                className="max-h-72 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                onError={(e) => {
+                  e.target.src = '/assets/logo.png';
+                }}
+              />
+            </div>
+
+            {/* Trust and Warranty badges */}
+            <div className="grid grid-cols-2 gap-3 text-xs">
+              <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center gap-2.5 text-slate-700">
+                <ShieldCheck className="w-4 h-4 text-[#78C042] shrink-0" />
+                <span className="font-medium">2 Yıl Resmi Distribütör Garantisi</span>
+              </div>
+              <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center gap-2.5 text-slate-700">
+                <Check className="w-4 h-4 text-[#0082A6] shrink-0" />
+                <span className="font-medium">Yetkili Kurumsal Entegrasyon</span>
+              </div>
             </div>
           </div>
 
-          {/* Product Details & Actions */}
+          {/* Right Column: Title, Specs & Inquiry CTA */}
           <div className="lg:col-span-7 space-y-6">
             <div>
-              <span className="text-xs font-mono font-bold text-[#0082A6] uppercase tracking-wider block mb-1">
-                {product.brand} • {product.category} • {product.subcategory}
-              </span>
-              <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-950 tracking-tight mb-3">
+              <div className="flex items-center gap-2 mb-2">
+                <span className={`text-xs font-mono font-bold uppercase tracking-wider ${brandColorText}`}>
+                  {product.brand} KURUMSAL PORTFÖYÜ
+                </span>
+                <span className="text-slate-300">•</span>
+                <span className="text-xs font-mono text-slate-500">{product.series}</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
                 {product.model}
               </h1>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                {product.shortDescription}
+              <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+                {product.desc}
               </p>
             </div>
 
-            {/* Quick Specs Chips */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-mono">
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                <span className="text-slate-500 block text-[10px]">MARKA & MENŞEİ</span>
-                <strong className="text-slate-900">{product.brand} Kurumsal</strong>
-              </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                <span className="text-slate-500 block text-[10px]">KULLANIM ALANI</span>
-                <strong className="text-slate-900 truncate block">{product.subcategory || product.category}</strong>
-              </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                <span className="text-slate-500 block text-[10px]">GARANTİ / DESTEK</span>
-                <strong className="text-emerald-700 font-bold">2 Yıl Birebir Değişim</strong>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <a 
-                href="#teklif-formu"
-                className="cursor-pointer px-7 py-3.5 rounded-xl font-bold text-xs bg-[#004A93] hover:bg-[#003870] text-white shadow-md flex items-center gap-2 transition-all transform hover:-translate-y-0.5"
-              >
-                <span>Bu Cihaz İçin Proje Fiyatı Al</span>
-                <Send className="w-3.5 h-3.5 text-[#78C042]" />
-              </a>
-
-              {product.officialUrl && (
-                <a 
-                  href={product.officialUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-5 py-3.5 rounded-xl font-bold text-xs border border-slate-300 text-slate-700 hover:bg-slate-50 flex items-center gap-1.5 transition-colors"
-                >
-                  <span>Resmi Ürün Sayfası</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              )}
-
-              {product.datasheetUrl && (
-                <a 
-                  href={product.datasheetUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-5 py-3.5 rounded-xl font-bold text-xs bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center gap-1.5 transition-colors"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span>Datasheet PDF</span>
-                </a>
-              )}
-            </div>
-          </div>
-
-        </div>
-
-        {/* Detailed Specs & Use Cases */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
-          
-          {/* Specs Table */}
-          <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-4 shadow-sm">
-            <h3 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
-              <span>Teknik Özellikler & Standartlar</span>
-              <span className="text-xs font-mono text-slate-400 font-normal">{product.brand} Orijinal Donanım</span>
-            </h3>
-
-            {product.specs ? (
-              <div className="divide-y divide-slate-100 text-xs sm:text-sm">
-                {Object.entries(product.specs).map(([key, val]) => (
-                  <div key={key} className="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                    <span className="text-slate-500 font-medium sm:w-1/3">{key}</span>
-                    <strong className="text-slate-900 sm:w-2/3 sm:text-right font-mono font-semibold">{val}</strong>
+            {/* Quick Specs Highlight Grid */}
+            <div className="space-y-3 pt-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">Öne Çıkan Özellikler</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {product.features?.map((feat, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <Check className="w-4 h-4 text-[#78C042] shrink-0 mt-0.5" />
+                    <span>{feat}</span>
                   </div>
                 ))}
               </div>
-            ) : (
-              <p className="text-xs text-slate-500">Bu ürün için detaylı şartname bilgisi teklif dokümanıyla birlikte sunulmaktadır.</p>
-            )}
-          </div>
+            </div>
 
-          {/* Use Cases */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-slate-50 to-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-4 shadow-sm">
-            <h3 className="text-lg font-bold text-slate-900 border-b border-slate-200 pb-3">
-              Öne Çıkan Kullanım Alanları
-            </h3>
-
-            <div className="space-y-3">
-              {product.useCases && product.useCases.length > 0 ? (
-                product.useCases.map((uc, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[#f2f9ed] text-[#5c9e29] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
-                      ✓
-                    </div>
-                    <span className="text-xs sm:text-sm text-slate-700 leading-relaxed">{uc}</span>
-                  </div>
-                ))
-              ) : (
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#f2f9ed] text-[#5c9e29] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
-                    ✓
-                  </div>
-                  <span className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                    Kurumsal ofis iletişimi, çağrı merkezi operasyonları ve telekomünikasyon altyapısı.
-                  </span>
+            {/* Use Cases / Kimler İçin Uygun */}
+            {product.useCases && (
+              <div className="space-y-2 pt-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">Hedef Kullanım Alanları</h3>
+                <div className="flex flex-wrap gap-2">
+                  {product.useCases.map((uc, idx) => (
+                    <span key={idx} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#004A93]"></span>
+                      {uc}
+                    </span>
+                  ))}
                 </div>
-              )}
+              </div>
+            )}
+
+            {/* Action Bar */}
+            <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <a 
+                href="#teklif-formu" 
+                className="px-6 py-3.5 rounded-xl bg-[#004A93] hover:bg-[#003870] text-white font-bold text-xs sm:text-sm shadow-md text-center transition-all cursor-pointer"
+              >
+                Kurumsal Fiyat & Teklif İste ↓
+              </a>
+              <a 
+                href={COMPANY_INFO.phoneTel} 
+                className="px-5 py-3.5 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs sm:text-sm text-center transition-colors flex items-center justify-center gap-2"
+              >
+                <span>Hemen Danışın: {COMPANY_INFO.formattedPhone}</span>
+              </a>
             </div>
 
             <div className="pt-4 border-t border-slate-200 mt-6">
@@ -311,9 +290,9 @@ export default function ProductDetailPage({ product, onBack, onInquire }) {
           ) : (
             <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-4">
               {errorMessage && (
-                <div className="p-3 bg-rose-500/20 border border-rose-500 text-rose-200 text-xs rounded-xl flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <span>{errorMessage}</span>
+                <div className="p-3.5 bg-rose-500/20 border border-rose-500 text-rose-200 text-xs sm:text-sm rounded-xl flex items-start gap-2.5">
+                  <AlertCircle className="w-4 h-4 shrink-0 text-rose-400 mt-0.5" />
+                  <span className="leading-relaxed">{errorMessage}</span>
                 </div>
               )}
 
@@ -389,33 +368,58 @@ export default function ProductDetailPage({ product, onBack, onInquire }) {
                 ></textarea>
               </div>
 
-              <div className="flex items-start gap-2 pt-1 text-[11px] text-slate-300">
+              {/* Mandatory KVKK Checkbox (NO defaultChecked) */}
+              <div className="flex items-start gap-2.5 pt-1 text-xs text-slate-300">
                 <input 
                   type="checkbox" 
                   id="kvkk-detail" 
-                  defaultChecked 
+                  checked={kvkkAccepted}
+                  onChange={(e) => setKvkkAccepted(e.target.checked)}
                   required 
-                  className="mt-0.5 rounded border-white/20 bg-white/10 text-[#78C042] focus:ring-[#78C042]" 
+                  className="mt-0.5 rounded border-white/20 bg-white/10 text-[#78C042] focus:ring-[#78C042] cursor-pointer" 
                 />
-                <label htmlFor="kvkk-detail" className="leading-tight">
-                  <a href="#gizlilik-ve-guvenlik" target="_blank" rel="noopener noreferrer" className="text-[#78C042] font-semibold underline hover:text-emerald-400">
+                <label htmlFor="kvkk-detail" className="leading-snug cursor-pointer text-[11px] sm:text-xs">
+                  <a href="#gizlilik-ve-guvenlik" target="_blank" rel="noopener noreferrer" className="text-[#78C042] font-semibold underline hover:text-emerald-300">
                     KVKK Aydınlatma Metni
-                  </a> ve <a href="#gizlilik-ve-guvenlik" target="_blank" rel="noopener noreferrer" className="text-[#78C042] font-semibold underline hover:text-emerald-400">
+                  </a> ve <a href="#gizlilik-ve-guvenlik" target="_blank" rel="noopener noreferrer" className="text-[#78C042] font-semibold underline hover:text-emerald-300">
                     Gizlilik Bildirimi
-                  </a>'ni okudum, iletişim verilerimin teklif amacıyla işlenmesini onaylıyorum.
+                  </a>'ni okudum, iletişim verilerimin teklif amacıyla işlenmesini onaylıyorum. *
                 </label>
               </div>
 
+              {/* Optional Marketing Consent */}
+              <div className="flex items-start gap-2.5 text-xs text-slate-400">
+                <input 
+                  type="checkbox" 
+                  id="marketing-detail" 
+                  checked={marketingConsent}
+                  onChange={(e) => setMarketingConsent(e.target.checked)}
+                  className="mt-0.5 rounded border-white/20 bg-white/10 text-[#78C042] focus:ring-[#78C042] cursor-pointer" 
+                />
+                <label htmlFor="marketing-detail" className="leading-snug cursor-pointer text-[11px] sm:text-xs">
+                  Dream Telecom ürün ve kampanya duyuruları ile ilgili ticari elektronik ileti (SMS ve e-posta) almayı kabul ediyorum. (İsteğe bağlı)
+                </label>
+              </div>
+
+              {/* Cloudflare Turnstile Widget */}
+              <TurnstileWidget 
+                ref={turnstileRef}
+                onTokenChange={setTurnstileToken}
+                onReadyChange={setTurnstileReady}
+              />
+
               <button 
                 type="submit"
-                disabled={isSubmitting}
-                className="cursor-pointer w-full py-4 rounded-xl font-bold text-xs bg-[#78C042] hover:bg-[#5fa52b] text-slate-950 shadow-lg flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 disabled:opacity-70"
+                disabled={isSubmitting || !kvkkAccepted || (!turnstileToken && !turnstileReady)}
+                className="cursor-pointer w-full py-4 rounded-xl font-bold text-xs bg-[#78C042] hover:bg-[#5fa52b] text-slate-950 shadow-lg flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin text-slate-950" />
                     <span>Talebiniz İletiliyor...</span>
                   </>
+                ) : !turnstileToken && !turnstileReady ? (
+                  <span>Güvenlik Doğrulaması Hazırlanıyor...</span>
                 ) : (
                   <>
                     <Send className="w-4 h-4" />
