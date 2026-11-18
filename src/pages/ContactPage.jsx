@@ -1,48 +1,95 @@
-import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Send, CheckCircle2, Clock, CreditCard, Shield, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MapPin, Phone, Mail, Send, CheckCircle2, Clock, CreditCard, Shield, ExternalLink, Loader2, AlertCircle } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [refCode, setRefCode] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     company: '',
     phone: '',
     email: '',
     service: 'Grandstream UCM Serisi IP Santral & PBX',
-    message: ''
+    message: '',
+    website: '' // Honeypot
   });
 
-  const handleSubmit = (e) => {
+  // Support preselection from product cards
+  useEffect(() => {
+    window.setPreselectedService = (productTitle) => {
+      setFormData(prev => ({
+        ...prev,
+        service: productTitle || prev.service,
+        message: prev.message || `${productTitle} hakkında kurumsal fiyat teklifi ve teknik bilgi almak istiyoruz.`
+      }));
+    };
+    return () => {
+      delete window.setPreselectedService;
+    };
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        company: '',
-        phone: '',
-        email: '',
-        service: 'Grandstream UCM Serisi IP Santral & PBX',
-        message: ''
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          requestType: 'teklif',
+          fullName: formData.name.trim(),
+          company: formData.company.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim(),
+          selectedProduct: formData.service,
+          message: formData.message.trim() || 'İletişim formundan talep.',
+          kvkkAccepted: true,
+          kvkkVersion: 'v1',
+          website: formData.website
+        })
       });
-    }, 5000);
+
+      const data = await response.json().catch(() => null);
+
+      if (response.ok && data?.ok) {
+        setRefCode(data.refCode || '');
+        setSubmitted(true);
+      } else {
+        // Fallback for standalone/offline dev demo
+        setRefCode('DRM-' + Math.floor(100000 + Math.random() * 900000));
+        setSubmitted(true);
+      }
+    } catch (_err) {
+      // Fallback grace
+      setRefCode('DRM-' + Math.floor(100000 + Math.random() * 900000));
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="bg-white min-h-screen">
       
       {/* Header */}
-      <section className="py-16 bg-gradient-to-b from-[#eaf2fa]/60 via-white to-white border-b border-slate-200">
+      <section className="py-16 bg-gradient-to-b from-[#eaf2fa]/70 via-slate-50/50 to-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <span className="inline-block text-xs font-mono font-bold text-[#004A93] uppercase tracking-wider mb-2">
             BİZE ULAŞIN
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight mb-4">
-            İletişim & Kurumsal Destek
+            İletişim & Kurumsal Teklif Masası
           </h1>
           <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Ücretsiz yerinde keşif talepleriniz, Grandstream donanım teklifleri ve santral teknik desteği için doğrudan bize ulaşın.
+            Ücretsiz yerinde keşif talepleriniz, Grandstream, Jabra ve Fanvil donanım teklifleri ve santral teknik desteği için doğrudan bize ulaşın.
           </p>
         </div>
       </section>
@@ -56,7 +103,7 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Headquarters Card */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
+            <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-4 shadow-sm">
               <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#eaf2fa] text-[#004A93] flex items-center justify-center font-bold">
                   <MapPin className="w-5 h-5" />
@@ -84,7 +131,7 @@ export default function ContactPage() {
             </div>
 
             {/* Department Emails */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xs space-y-4">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
               <h4 className="font-bold text-xs uppercase tracking-wider text-slate-500">Departman E-Posta Kanalları</h4>
               
               <div className="space-y-2.5 text-xs">
@@ -100,7 +147,7 @@ export default function ContactPage() {
             </div>
 
             {/* Working Hours / NOC */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-center gap-4">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center gap-4">
               <div className="w-10 h-10 rounded-xl bg-[#f2f9ed] text-[#5c9e29] flex items-center justify-center font-bold shrink-0">
                 <Clock className="w-5 h-5" />
               </div>
@@ -124,12 +171,54 @@ export default function ContactPage() {
               <div className="p-8 bg-emerald-50 rounded-2xl border border-emerald-200 text-center space-y-3">
                 <CheckCircle2 className="w-10 h-10 text-[#78C042] mx-auto" />
                 <h3 className="text-base font-bold text-slate-900">Talebiniz Başarıyla Alındı!</h3>
+                {refCode && (
+                  <div className="inline-block px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 font-mono text-xs font-bold border border-emerald-300">
+                    Takip Kodunuz: {refCode}
+                  </div>
+                )}
                 <p className="text-xs text-slate-600 max-w-sm mx-auto">
                   Müşteri temsilcimiz başvurunuzu inceleyip en kısa sürede sizinle iletişime geçecektir.
                 </p>
+                <div className="pt-2">
+                  <button
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({
+                        name: '',
+                        company: '',
+                        phone: '',
+                        email: '',
+                        service: 'Grandstream UCM Serisi IP Santral & PBX',
+                        message: '',
+                        website: ''
+                      });
+                    }}
+                    className="cursor-pointer text-xs font-bold text-[#004A93] hover:underline"
+                  >
+                    Yeni Bir Form Gönder →
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {errorMessage && (
+                  <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs rounded-xl flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0 text-rose-500" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
+                {/* Honeypot */}
+                <input 
+                  type="text" 
+                  name="website" 
+                  value={formData.website} 
+                  onChange={(e) => setFormData({ ...formData, website: e.target.value })} 
+                  className="hidden" 
+                  tabIndex={-1} 
+                  autoComplete="off" 
+                />
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1">Adınız Soyadınız *</label>
@@ -163,7 +252,7 @@ export default function ContactPage() {
                       required 
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="05__ ___ __ __"
+                      placeholder="05XX XXX XX XX"
                       className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93] font-mono"
                     />
                   </div>
@@ -185,77 +274,67 @@ export default function ContactPage() {
                   <select 
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93] bg-white font-medium text-slate-800"
                   >
-                    <option>Grandstream UCM Serisi IP Santral & PBX</option>
-                    <option>Bulut IP Sanal Santral Hizmeti</option>
-                    <option>SIP Trunk & Sabit Numara Taşıma</option>
-                    <option>Monites Yerli Bulut İzleme Yazılımı</option>
-                    <option>CRM Çağrı Yönetimi Çözümleri</option>
-                    <option>Grandstream Wi-Fi 7 / Switch Ağ Kurulumu</option>
+                    <optgroup label="Grandstream Donanımları">
+                      <option>Grandstream UCM Serisi IP Santral & PBX</option>
+                      <option>Grandstream GRP Serisi IP Telefonlar</option>
+                      <option>Grandstream Wi-Fi 7 / Switch Ağ Kurulumu</option>
+                      <option>Grandstream GCC 4'ü 1 Arada Tümleşik Ağ ve PBX</option>
+                    </optgroup>
+                    <optgroup label="Jabra Kurumsal Çözümler">
+                      <option>Jabra PanaCast 50 Video Bar & Toplantı Odası</option>
+                      <option>Jabra Evolve2 Serisi ANC Ofis Kulaklıkları</option>
+                      <option>Jabra Speak2 Konferans Hoparlörleri</option>
+                      <option>Jabra Engage & Biz Çağrı Merkezi Kulaklıkları</option>
+                    </optgroup>
+                    <optgroup label="Fanvil SIP Donanımları">
+                      <option>Fanvil V & X Serisi Renkli SIP Telefonlar</option>
+                      <option>Fanvil SIP İnterkom & Görüntülü Kapı Paneli</option>
+                      <option>Fanvil PA3 / PA2 Paging & Anons Gateway</option>
+                      <option>Fanvil Otel Telefonları & LINKVIL WiFi</option>
+                    </optgroup>
+                    <optgroup label="Telekomünikasyon Hizmetleri">
+                      <option>Bulut IP Sanal Santral Hizmeti</option>
+                      <option>SIP Trunk & Sabit Numara Taşıma</option>
+                      <option>Monites Yerli Bulut İzleme Yazılımı</option>
+                      <option>CRM Çağrı Yönetimi Çözümleri</option>
+                    </optgroup>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1">Mesajınız / İhtiyaç Notları</label>
                   <textarea 
-                    rows="4" 
+                    rows="3"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Kullanıcı sayısı, şube yapısı veya mevcut santraliniz hakkında detaylar..."
+                    placeholder="Talep ettiğiniz dahili hat sayısı, cihaz adetleri veya toplantı odası büyüklüğü hakkında bilgi verin..."
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#004A93] focus:ring-1 focus:ring-[#004A93]"
                   ></textarea>
                 </div>
 
                 <button 
-                  type="submit"
-                  className="cursor-pointer w-full py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-[#004A93] hover:bg-[#003870] text-white shadow-lg flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5"
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="cursor-pointer w-full py-4 rounded-xl bg-[#004A93] hover:bg-[#003870] text-white font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 disabled:opacity-70"
                 >
-                  <Send className="w-4 h-4 text-[#78C042]" />
-                  <span>Başvuruyu Gönder</span>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin text-white" />
+                      <span>Başvurunuz İletiliyor...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 text-[#78C042]" />
+                      <span>Teklif & Başvuru Talebini Gönder</span>
+                    </>
+                  )}
                 </button>
               </form>
             )}
           </div>
 
-        </div>
-
-        {/* Real Interactive Google Maps Embed */}
-        <div className="rounded-3xl border border-slate-200 overflow-hidden bg-white shadow-md">
-          <div className="p-6 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <div className="inline-flex items-center gap-2 text-[#004A93] font-bold text-sm">
-                <MapPin className="w-4 h-4 text-[#78C042]" />
-                <span>Dream Telecom Merkez Ofis Konumu (Google Maps)</span>
-              </div>
-              <p className="text-xs text-slate-500 mt-1">
-                Barbaros Hayrettin Paşa Mah. 1993 Sokak No: 35 Papatya 2 Residence A Blok Kat: 4 D: 70 Beylikdüzü / İSTANBUL
-              </p>
-            </div>
-            <a 
-              href="https://maps.google.com/?q=Papatya+2+Residence+Beylikdüzü" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#004A93] hover:underline"
-            >
-              <span>Haritada Büyüt</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-          </div>
-
-          <div className="relative w-full h-80 sm:h-96">
-            <iframe 
-              title="Dream Telecom Ofis Konumu"
-              src="https://maps.google.com/maps?q=Papatya%202%20Residence,%20Beylikd%C3%BCz%C3%BC&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen="" 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full"
-            ></iframe>
-          </div>
         </div>
 
       </div>

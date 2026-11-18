@@ -1,3 +1,7 @@
+// Dream Telecom Multi-Brand Enterprise Product Catalog
+// Brands: Grandstream (33) + Jabra (20) + Fanvil (20)
+// Total: 73 Enterprise Products
+
 export const PRODUCTS = [
   {
     "id": "ucm6300-series",
@@ -25,7 +29,8 @@ export const PRODUCTS = [
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Email%20Assets%20Q4%202020/UCM6300_series.png",
     "officialUrl": "https://www.grandstream.com/products/ip-pbxs/ucm-series-ip-pbxs/product/ucm6300-series-ip-pbx",
-    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/ucm6300_series/Datasheet_UCM6300_Series_English.pdf"
+    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/ucm6300_series/Datasheet_UCM6300_Series_English.pdf",
+    "brand": "Grandstream"
   },
   {
     "id": "clouducm",
@@ -52,7 +57,8 @@ export const PRODUCTS = [
       "Güvenlik": "Uçtan Uca TLS/SRTP Şifreleme ve SBC Entegrasyonu"
     },
     "imageUrl": "https://www.grandstream.com/hs-fs/hubfs/Vertical_Solution_Pages/Hospitality/UCM6300_Series_ippbx.png?width=300&height=300&name=UCM6300_Series_ippbx.png",
-    "officialUrl": "https://www.grandstream.com/products/ip-pbxs/ucm-series-ip-pbxs/product/clouducm"
+    "officialUrl": "https://www.grandstream.com/products/ip-pbxs/ucm-series-ip-pbxs/product/clouducm",
+    "brand": "Grandstream"
   },
   {
     "id": "softwareucm",
@@ -80,7 +86,8 @@ export const PRODUCTS = [
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/UCM/UCM6300_back-website.png",
     "officialUrl": "https://www.grandstream.com/products/ip-pbxs/ucm-series-ip-pbxs/product/softwareucm",
-    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/SoftwareUCM/Datasheet_SoftwareUCM_English.pdf"
+    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/SoftwareUCM/Datasheet_SoftwareUCM_English.pdf",
+    "brand": "Grandstream"
   },
   {
     "id": "gcc6010-series",
@@ -108,7 +115,8 @@ export const PRODUCTS = [
     },
     "imageUrl": "https://www.grandstream.com/hs-fs/hubfs/gcc%20image.png?width=300&height=300&name=gcc%20image.png",
     "officialUrl": "https://www.grandstream.com/products/convergence-solutions/gcc6000-series",
-    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/GCC6010%20Series/Datasheet_GCC6010_Series_English.pdf"
+    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/GCC6010%20Series/Datasheet_GCC6010_Series_English.pdf",
+    "brand": "Grandstream"
   },
   {
     "id": "gcc6020-series",
@@ -135,7 +143,8 @@ export const PRODUCTS = [
       "Yönetim": "GDMS Bulut Platformu ve Yerel Web Arayüzü"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/GCC602X%20Series_5.png",
-    "officialUrl": "https://www.grandstream.com/products/convergence-solutions/gcc6020-series-grandstream-networks"
+    "officialUrl": "https://www.grandstream.com/products/convergence-solutions/gcc6020-series-grandstream-networks",
+    "brand": "Grandstream"
   },
   {
     "id": "grp2601",
@@ -163,7 +172,8 @@ export const PRODUCTS = [
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GRP/grp2601_left_web-website.png",
     "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony-carrier-grade-ip-phones/grp-series-essential-ip-phones/product/grp2601p/w",
-    "datasheetUrl": "https://www.grandstream.com/hubfs/PartnerConnect/Comparison%20Charts/GRP261x%20IP%20Phone%20Master%20Comparison%20Chart.pdf"
+    "datasheetUrl": "https://www.grandstream.com/hubfs/PartnerConnect/Comparison%20Charts/GRP261x%20IP%20Phone%20Master%20Comparison%20Chart.pdf",
+    "brand": "Grandstream"
   },
   {
     "id": "grp2602",
@@ -189,7 +199,8 @@ export const PRODUCTS = [
       "Yönetim": "GDMS Sıfır Dokunuşla Provizyon"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GRP/grp2602_left_web-website.png",
-    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony-carrier-grade-ip-phones/grp-series-essential-ip-phones/product/grp2602-p-w-g"
+    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony-carrier-grade-ip-phones/grp-series-essential-ip-phones/product/grp2602-p-w-g",
+    "brand": "Grandstream"
   },
   {
     "id": "grp2604p",
@@ -215,7 +226,8 @@ export const PRODUCTS = [
       "Kulaklık": "Plantronics, Jabra ve Sennheiser EHS Desteği"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GRP/grp2604_front_web.png",
-    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/carrier-grade-ip-phones/grp-series-essential-ip-phones"
+    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/carrier-grade-ip-phones/grp-series-essential-ip-phones",
+    "brand": "Grandstream"
   },
   {
     "id": "grp2612",
@@ -242,7 +254,8 @@ export const PRODUCTS = [
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GRP/grp2612_front_web-website.png",
     "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/carrier-grade-ip-phones/grp-series-professional-ip-phones/product/grp2612-p-w-g",
-    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/datasheet_grp2612_english.pdf"
+    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/datasheet_grp2612_english.pdf",
+    "brand": "Grandstream"
   },
   {
     "id": "grp2615",
@@ -269,7 +282,8 @@ export const PRODUCTS = [
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GRP/grp2615_feature_web-website.png",
     "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/carrier-grade-ip-phones/grp-series-professional-ip-phones/product/grp2615",
-    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/Datasheet_GRP2615_English.pdf"
+    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/Datasheet_GRP2615_English.pdf",
+    "brand": "Grandstream"
   },
   {
     "id": "grp2670",
@@ -295,7 +309,8 @@ export const PRODUCTS = [
       "Ses": "Çift Mikrofonlu HD Ses ve Gürültü Kalkanı Teknolojisi"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GRP/GRP2670/GRP2670_frontv2.png",
-    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/carrier-grade-ip-phones/grp-series-professional-ip-phones/product/grp2670"
+    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/carrier-grade-ip-phones/grp-series-professional-ip-phones/product/grp2670",
+    "brand": "Grandstream"
   },
   {
     "id": "gxp2170-series",
@@ -321,7 +336,8 @@ export const PRODUCTS = [
       "Genişleme Modülü": "GXP2200EXT Modül Desteği (GXP2140/2170)"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/APAC/gxp2170_square.png",
-    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/gxp-series-ip-phones/gxp-series-high-end-ip-phones"
+    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/gxp-series-ip-phones/gxp-series-high-end-ip-phones",
+    "brand": "Grandstream"
   },
   {
     "id": "gxp1625-series",
@@ -347,7 +363,8 @@ export const PRODUCTS = [
       "BLF": "8 Çift Renkli BLF Tuşu (GXP1628 modelinde)"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Grandstream_Feb_2021/Image/gxp1620_front_0.png",
-    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony-gxp-series-ip-phones/gxp-series-basic-ip-phones/product/gxp1620/gxp1625"
+    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony-gxp-series-ip-phones/gxp-series-basic-ip-phones/product/gxp1620/gxp1625",
+    "brand": "Grandstream"
   },
   {
     "id": "ghp630-hotel",
@@ -374,7 +391,8 @@ export const PRODUCTS = [
       "Montaj": "Masaüstü veya Duvar Tipi Kurulum, Özel Faceplate"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GHP620_GHP621/GHP620_4_500x500.png",
-    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/hotel-phones/product/ghp630-ghp631"
+    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/hotel-phones/product/ghp630-ghp631",
+    "brand": "Grandstream"
   },
   {
     "id": "wp825-series",
@@ -402,7 +420,8 @@ export const PRODUCTS = [
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/WP/WP825-1-web.png",
     "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/wifi-cordless/product/wp825",
-    "datasheetUrl": "https://www.grandstream.com/hubfs/PartnerConnect/Comparison%20Charts/WP%20Series%20Master_Comparison%20Chart_2022.pdf"
+    "datasheetUrl": "https://www.grandstream.com/hubfs/PartnerConnect/Comparison%20Charts/WP%20Series%20Master_Comparison%20Chart_2022.pdf",
+    "brand": "Grandstream"
   },
   {
     "id": "dp752-dect",
@@ -428,7 +447,8 @@ export const PRODUCTS = [
       "Ek Özellikler": "Bas-Konuş (PTT), Yakınlık ve Hareket Sensörü (DP730)"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/DP/dp752_front_web-website.png",
-    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/dect-cordless/product/dp752"
+    "officialUrl": "https://www.grandstream.com/products/ip-voice-telephony/dect-cordless/product/dp752",
+    "brand": "Grandstream"
   },
   {
     "id": "gxv3480",
@@ -456,7 +476,8 @@ export const PRODUCTS = [
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GXV/GXV3480_Front.png",
     "officialUrl": "https://www.grandstream.com/products/ip-video-telephony/ip-video-phones-android/product/gxv3480",
-    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/GXV3480/Datasheet_GXV3480_English.pdf"
+    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/GXV3480/Datasheet_GXV3480_English.pdf",
+    "brand": "Grandstream"
   },
   {
     "id": "gwn7674",
@@ -483,7 +504,8 @@ export const PRODUCTS = [
       "Yönetim": "GDMS Networking, GWN Manager ve Gömülü Kontrolcü"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/GWN7674_1.png",
-    "officialUrl": "https://www.grandstream.com/products/networking-solutions/indoor-wifi-access-points/product/gwn7674"
+    "officialUrl": "https://www.grandstream.com/products/networking-solutions/indoor-wifi-access-points/product/gwn7674",
+    "brand": "Grandstream"
   },
   {
     "id": "gwn7665",
@@ -510,7 +532,8 @@ export const PRODUCTS = [
     },
     "imageUrl": "https://www.grandstream.com/hubfs/GWN7665_Bottom_1.png",
     "officialUrl": "https://www.grandstream.com/products/networking-solutions/indoor-wifi-access-points/product/gwn7665",
-    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/GWN7665/Datasheet_GWN7665_English.pdf"
+    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/GWN7665/Datasheet_GWN7665_English.pdf",
+    "brand": "Grandstream"
   },
   {
     "id": "gwn7660-series",
@@ -536,7 +559,8 @@ export const PRODUCTS = [
       "Yönetim": "Ücretsiz GDMS Bulut ve Gömülü Kontrolcü"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GWN7664/GWN7664_front.png",
-    "officialUrl": "https://www.grandstream.com/products/networking-solutions/indoor-wifi-access-points/product/gwn7664"
+    "officialUrl": "https://www.grandstream.com/products/networking-solutions/indoor-wifi-access-points/product/gwn7664",
+    "brand": "Grandstream"
   },
   {
     "id": "gwn7624-inwall",
@@ -562,7 +586,8 @@ export const PRODUCTS = [
       "Montaj": "Duvar Buat İçi (GWN7624) veya Tavan Montajı"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GWN/GWN7624/GWN7624_4.png",
-    "officialUrl": "https://www.grandstream.com/products/networking-solutions/indoor-wifi-access-points/product/gwn7624"
+    "officialUrl": "https://www.grandstream.com/products/networking-solutions/indoor-wifi-access-points/product/gwn7624",
+    "brand": "Grandstream"
   },
   {
     "id": "gwn7660lr-outdoor",
@@ -588,7 +613,8 @@ export const PRODUCTS = [
       "Anten Yapısı": "Yüksek Kazançlı Dahili veya Sökülebilir Harici Antenler"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GWN/gwn7600lr_mounted_web.png",
-    "officialUrl": "https://www.grandstream.com/products/networking-solutions/outdoor-wifi-access-points/product/gwn7600lr"
+    "officialUrl": "https://www.grandstream.com/products/networking-solutions/outdoor-wifi-access-points/product/gwn7600lr",
+    "brand": "Grandstream"
   },
   {
     "id": "gwn7830-series",
@@ -614,7 +640,8 @@ export const PRODUCTS = [
       "Yönetim": "GDMS Bulut, CLI, Web GUI, SNMP, RMON"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GWN7830%20Series/GWN7830%20Series%20Webpage%20Pic%201.png",
-    "officialUrl": "https://www.grandstream.com/products/networking-solutions/network-switches/product/gwn7830-gwn7831-gwn7832"
+    "officialUrl": "https://www.grandstream.com/products/networking-solutions/network-switches/product/gwn7830-gwn7831-gwn7832",
+    "brand": "Grandstream"
   },
   {
     "id": "gwn7810-series",
@@ -640,7 +667,8 @@ export const PRODUCTS = [
       "Yönetim": "GDMS Bulut, GWN Manager, Web GUI, CLI, SNMP"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/GWN781X%203%20Website%20Upload%20v2.png",
-    "officialUrl": "https://www.grandstream.com/products/networking-solutions/network-switches/product/gwn7811p_gwn7812p_gwn7813p"
+    "officialUrl": "https://www.grandstream.com/products/networking-solutions/network-switches/product/gwn7811p_gwn7812p_gwn7813p",
+    "brand": "Grandstream"
   },
   {
     "id": "gwn7800-series",
@@ -666,7 +694,8 @@ export const PRODUCTS = [
       "Yönetim": "Ücretsiz GDMS Bulut Yönetimi"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/GWN7800%20Pro%20Series_1.png",
-    "officialUrl": "https://www.grandstream.com/products/networking-solutions/network-switches/product/gwn7800_pro_series"
+    "officialUrl": "https://www.grandstream.com/products/networking-solutions/network-switches/product/gwn7800_pro_series",
+    "brand": "Grandstream"
   },
   {
     "id": "gwn7700-series",
@@ -692,7 +721,8 @@ export const PRODUCTS = [
       "Enerji": "IEEE 802.3az Yeşil Enerji Tasarrufu"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/LATAM/2023/Diciembre%202023/Combined-Figure-GWN7700_01-website.png",
-    "officialUrl": "https://www.grandstream.com/products/networking-solutions/network-switches/product/gwn7700-p-pa-series"
+    "officialUrl": "https://www.grandstream.com/products/networking-solutions/network-switches/product/gwn7700-p-pa-series",
+    "brand": "Grandstream"
   },
   {
     "id": "gwn7000-routers",
@@ -719,7 +749,8 @@ export const PRODUCTS = [
       "Kablosuz Model": "GWN7062 Çift Bant Wi-Fi 6 Mesh Router Seçeneği"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GWN7001_02_03/GWN7001_1.png",
-    "officialUrl": "https://www.grandstream.com/products/networking-solutions/routers/product/gwn7001_gwn7002_gwn7003"
+    "officialUrl": "https://www.grandstream.com/products/networking-solutions/routers/product/gwn7001_gwn7002_gwn7003",
+    "brand": "Grandstream"
   },
   {
     "id": "gds3710",
@@ -747,7 +778,8 @@ export const PRODUCTS = [
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Product%20Images/GDS/gds3710_left_web-website.png",
     "officialUrl": "https://www.grandstream.com/products/facility-management/facility-access-systems/product/gds3710",
-    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/datasheet_gds3710_english.pdf"
+    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/datasheet_gds3710_english.pdf",
+    "brand": "Grandstream"
   },
   {
     "id": "gsc3516-paging",
@@ -773,7 +805,8 @@ export const PRODUCTS = [
       "Koruma": "Dış Ortam Modelinde IP66 Su ve Toz Koruması"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/GSC3518HS_5.png",
-    "officialUrl": "https://www.grandstream.com/products/facility-management/intercoms-paging/product/gsc3518hs"
+    "officialUrl": "https://www.grandstream.com/products/facility-management/intercoms-paging/product/gsc3518hs",
+    "brand": "Grandstream"
   },
   {
     "id": "gsc3570",
@@ -800,7 +833,8 @@ export const PRODUCTS = [
     },
     "imageUrl": "https://www.grandstream.com/hubfs/Grandstream_Feb_2021/Image/GSC3570_Wall-website.png",
     "officialUrl": "https://www.grandstream.com/products/facility-management/control-stations/product/gsc3570",
-    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/Datasheet_GSC3570_English.pdf"
+    "datasheetUrl": "https://www.grandstream.com/hubfs/Product_Documentation/Datasheet_GSC3570_English.pdf",
+    "brand": "Grandstream"
   },
   {
     "id": "ht800-series",
@@ -825,7 +859,8 @@ export const PRODUCTS = [
       "Güvenlik": "TLS ve SRTP Şifreleme, TR-069 ve GDMS Uzaktan Yönetim"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/HT801%20v2_2.png",
-    "officialUrl": "https://www.grandstream.com/products/gateways-and-atas/analog-telephone-adaptors/product/ht801v2"
+    "officialUrl": "https://www.grandstream.com/products/gateways-and-atas/analog-telephone-adaptors/product/ht801v2",
+    "brand": "Grandstream"
   },
   {
     "id": "gxw4200-4500",
@@ -850,7 +885,8 @@ export const PRODUCTS = [
       "Ses & Faks": "Opus, G.722, G.711, T.38 Faks, Taşıyıcı Sınıfı Yankı Engelleme"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/gxw4216-24-32-48-v2-website.png",
-    "officialUrl": "https://www.grandstream.com/products/gateways-and-atas/voip-gateways/product/gxw4200-series"
+    "officialUrl": "https://www.grandstream.com/products/gateways-and-atas/voip-gateways/product/gxw4200-series",
+    "brand": "Grandstream"
   },
   {
     "id": "gvc3220-conferencing",
@@ -876,6 +912,915 @@ export const PRODUCTS = [
       "Kişisel Ekipman": "GUV3100 1080p USB Webcam & GUV3000 HD Kulaklık Serisi"
     },
     "imageUrl": "https://www.grandstream.com/hubfs/GVC3220_right.png",
-    "officialUrl": "https://www.grandstream.com/products/business-conferencing/full-hd-conferencing/product/gvc3220"
+    "officialUrl": "https://www.grandstream.com/products/business-conferencing/full-hd-conferencing/product/gvc3220",
+    "brand": "Grandstream"
+  },
+  {
+    "id": "jabra-panacast-50",
+    "brand": "Jabra",
+    "model": "Jabra PanaCast 50",
+    "category": "Video Konferans",
+    "subcategory": "Akıllı Video Bar (BYOD)",
+    "badge": "En Çok Tercih Edilen Video Bar",
+    "featured": true,
+    "shortDescription": "180° Panoramik-4K görüntü, 8 mikrofonlu stüdyo kalitesinde ses, Dynamic Composition ve Canlı Beyaz Tahta paylaşımı sunan ödüllü akıllı video bar.",
+    "specs": {
+      "Kamera ve Çözünürlük": "3x 13MP Kamera ile 180° Panoramik-4K (3840x1080 @ 30fps)",
+      "Görüş Açısı": "Yatay: 180°, Dikey: 54°",
+      "Yapay Zeka Özellikleri": "Dynamic Composition, Virtual Director, Intelligent Zoom, Canlı Beyaz Tahta",
+      "Ses & Hoparlör": "4 adet sıfır titreşimli stereo hoparlör (2x 50mm woofer, 2x 20mm tweeter)",
+      "Mikrofon": "8 Beamforming hassas mikrofon dizilimi, yankı ve gürültü engelleme",
+      "Bağlantı": "USB-C, USB-A tak-çalıştır, Ethernet (RJ45)",
+      "Sertifikalar": "Microsoft Teams, Microsoft Teams Rooms, Zoom, Zoom Rooms"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/1/4/2/f/142fdb59906cebf07c63b2312f7710001bebf25e_Jabra_PanaCast50_table_stand_grey_02.png",
+    "officialUrl": "https://www.jabra.com/en-gb/business/video-conferencing/jabra-panacast-50"
+  },
+  {
+    "id": "jabra-panacast-50-vbs",
+    "brand": "Jabra",
+    "model": "Jabra PanaCast 50 Video Bar System (VBS)",
+    "category": "Video Konferans",
+    "subcategory": "All-in-One Android Oda Sistemleri",
+    "badge": "Hepsi-Bir-Arada Android",
+    "featured": true,
+    "shortDescription": "Dahili Android işlemcili 180° Panoramik-4K akıllı video bar ve 10.1 inç dokunmatik PanaCast Control masa tabletinden oluşan hepsi-bir-arada toplantı odası sistemi.",
+    "specs": {
+      "İşletim Sistemi": "Android tabanlı bağımsız oda mimarisi",
+      "Kamera": "3x 13MP Kamera ile 180° Panoramik-4K (3840x1080)",
+      "Kontrol Tableti": "10.1 inç HD Dokunmatik PanaCast Control (PoE beslemeli, tek kablo)",
+      "Ses & Mikrofon": "8 Beamforming Mikrofon + 4 Titreşimsiz Hoparlör",
+      "Bağlantı & Ağ": "Wi-Fi, Bluetooth, 2x Ethernet Gigabit PoE, HDMI Çıkış (Çift Ekran desteği)",
+      "Sertifikalar": "Microsoft Teams Rooms on Android, Zoom Rooms"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/8/c/4/b/8c4baf973599ca7670ac432ac06a9d9b51ed436b_jabra_panacast_50_video_bar_system.png",
+    "officialUrl": "https://www.jabra.com/business/video-conferencing/jabra-panacast-50-video-bar-system"
+  },
+  {
+    "id": "jabra-panacast-50-room-system",
+    "brand": "Jabra",
+    "model": "Jabra PanaCast 50 Room System",
+    "category": "Video Konferans",
+    "subcategory": "Windows Tabanlı Tam Oda Sistemleri",
+    "badge": "Windows & MTR On Windows",
+    "featured": true,
+    "shortDescription": "PanaCast 50 Video Bar, Lenovo ThinkSmart Core Windows işlemci ünitesi ve 10.1 inç ThinkSmart Controller dokunmatik panelden oluşan kurumsal Windows oda çözümü.",
+    "specs": {
+      "İşlemci Ünitesi": "Lenovo ThinkSmart Core (Intel Core vPro, Windows 11 IoT Enterprise SAC)",
+      "Dokunmatik Panel": "10.1 inç Full HD ThinkSmart Controller Dokunmatik Ekran",
+      "Video Bar": "Jabra PanaCast 50 (180° Panoramik 4K, 8 Mikrofon, 4 Hoparlör)",
+      "Özel Yetenek": "Microsoft Teams Intelligent Speaker (10 kişiye kadar sesli katip & kimlik tanıma)",
+      "Yönetim": "Lenovo ThinkSmart Manager & Jabra+ Cloud Platform"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/4/c/a/1/4ca17c389237d27f6781486803fd21fe86babdb2_Jabra_PanaCast50VBS_01.png",
+    "officialUrl": "https://www.jabra.com/en-in/business/video-conferencing/jabra-panacast-50-room-system"
+  },
+  {
+    "id": "jabra-panacast-40-vbs",
+    "brand": "Jabra",
+    "model": "Jabra PanaCast 40 VBS",
+    "category": "Video Konferans",
+    "subcategory": "Kompakt Video Bar Sistemi",
+    "badge": "Kompakt Huddle Çözümü",
+    "featured": false,
+    "shortDescription": "Küçük toplantı odaları ve odak alanları (Huddle Rooms) için tasarlanmış kompakt, hepsi-bir-arada akıllı video konferans çubuğu.",
+    "specs": {
+      "Görüş Açısı": "Geniş Açılı 4K Ultra HD Optik Sistem",
+      "İşletim Mimarisi": "Android Tabanlı Huddle Room Sistemi + Dokunmatik Kontrol",
+      "Ses & Mikrofon": "Yüksek verimli tümleşik hoparlör ve beamforming mikrofonlar",
+      "Oda Tipi": "Odak Odası / Huddle Room (2-5 Kişi)",
+      "Montaj": "Ekran üstü, ekran altı veya duvar montaj"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/3/e/f/f/3effb4227189ad803cb3160caeb47258a57dfa91_Jabra_PanaCast_40vbs_techspec3.png",
+    "officialUrl": "https://www.jabra.com/business/video-conferencing/jabra-panacast-40-vbs"
+  },
+  {
+    "id": "jabra-panacast-20",
+    "brand": "Jabra",
+    "model": "Jabra PanaCast 20",
+    "category": "Video Konferans",
+    "subcategory": "Kişisel 4K AI Kameralar",
+    "badge": "4K Edge AI Kişisel Kamera",
+    "featured": false,
+    "shortDescription": "Cihaz içi Edge AI işlemcisiyle Akıllı Işık Optimizasyonu, Akıllı Yakınlaştırma ve Resim İçinde Resim sunan 4K Ultra HD kişisel video konferans kamerası.",
+    "specs": {
+      "Sensör ve Çözünürlük": "13 Megapiksel 4K Ultra HD (3840x2160 @ 30fps)",
+      "Yapay Zeka": "Edge AI İşlemci (Intelligent Zoom, Akıllı Işık Optimizasyonu)",
+      "Gizlilik": "Entegre Mekanik Lens Gizlilik Sürgüsü (Privacy Cover)",
+      "Resim İçinde Resim": "Picture-in-Picture (PiP) ikinci odak penceresi",
+      "Mikrofon": "3 Dahili Çok Yönlü MEMS Mikrofon",
+      "Bağlantı": "USB-C 3.0 Tak-Çalıştır, Dayanıklı Taşıma Kılıfı"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/5/e/5/7/5e5780d2896b17079bdfa776b4df15c945d39a79_Jabra_PanaCast20_00s.png",
+    "officialUrl": "https://www.jabra.com/business/video-conferencing/jabra-panacast-20"
+  },
+  {
+    "id": "jabra-panacast-meet-anywhere",
+    "brand": "Jabra",
+    "model": "Jabra PanaCast Meet Anywhere / Meet Anywhere+",
+    "category": "Video Konferans",
+    "subcategory": "Taşınabilir Konferans Paketleri",
+    "badge": "Taşınabilir Konferans Kiti",
+    "featured": false,
+    "shortDescription": "PanaCast kamera, Speak 750 / Speak2 75 konferans hoparlörü, masa standı ve taşıma çantasından oluşan mobil toplantı seti.",
+    "specs": {
+      "İçerik": "PanaCast 180° / PanaCast 20 + Speak 750 / Speak2 75 + Masa Standı + 1m USB Kablosu",
+      "Çanta": "Özel korumalı fermuarlı seyahat çantası",
+      "Kullanım Amacı": "Hibrit çalışanlar, seyahat eden ekipler ve esnek ofisler"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/c/c/f/b/ccfb65e3b0c8558d478dfadd5d53c691e5ef2ee5_Jabra_PanaCast_Meet_Anywhere1s.png",
+    "officialUrl": "https://www.jabra.com/business/video-conferencing/jabra-panacast-bundle/buy"
+  },
+  {
+    "id": "jabra-speak2-75",
+    "brand": "Jabra",
+    "model": "Jabra Speak2 75",
+    "category": "Konferans Hoparlörü",
+    "subcategory": "Speak2 Serisi",
+    "badge": "Amiral Gemisi Ses",
+    "featured": true,
+    "shortDescription": "65mm süper geniş bant hoparlörü, 4 beamforming mikrofonu ve patentli 360° Mikrofon Kalite Göstergesi LED halkasıyla toplantıların amiral gemisi.",
+    "specs": {
+      "Hoparlör Boyutu": "65mm Tam Aralıklı Hoparlör (Super-Wideband Ses)",
+      "Mikrofon Dizilimi": "4 adet Beamforming Mikrofon (360° Ses Yakalama)",
+      "Mikrofon Kalite Göstergesi": "360° LED Işık Halkası (Yeşil / Turuncu / Kırmızı Canlı Geri Bildirim)",
+      "Ses Teknolojisi": "Tam Çift Yönlü (Full-Duplex) & Ses Seviyesi Normalleştirme (Voice Level Normalization)",
+      "Batarya": "32 Saate Kadar Kablosuz Kullanım Süresi",
+      "Bağlantı": "Entegre USB-C + USB-A Tek Kablo, Bluetooth 5.2 (Link 380 adaptörlü opsiyon)",
+      "Dayanıklılık": "IP64 Su ve Toz Dayanıklılık Sertifikası"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/d/c/a/4/dca4ff97bffb3ecd87295dfb61418ad532d4579a_00_Speak2_75_MS.png",
+    "officialUrl": "https://www.jabra.com/business/speakerphones/jabra-speak-series/jabra-speak2-75"
+  },
+  {
+    "id": "jabra-speak2-55",
+    "brand": "Jabra",
+    "model": "Jabra Speak2 55",
+    "category": "Konferans Hoparlörü",
+    "subcategory": "Speak2 Serisi",
+    "badge": "Taşınabilir Güç",
+    "featured": false,
+    "shortDescription": "50mm tam aralıklı hoparlör, 4 beamforming mikrofon, Tam Çift Yönlü ses, 12 saat pil ve çift USB-C/A bağlantı.",
+    "specs": {
+      "Hoparlör": "50mm Tam Aralıklı Hoparlör",
+      "Mikrofon": "4 Beamforming Mikrofon, Full-Duplex Ses",
+      "Batarya": "12 Saate Kadar Kablosuz Pil Ömrü",
+      "Bağlantı": "Entegre USB-C / USB-A Kablo + Bluetooth 5.1",
+      "Koruma": "IP64 Su ve Toz Dayanıklılığı"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/4/f/3/3/4f337b1e661525cd0680f494d71bfc7886308ff2_00_Jabra_Speak2_55_UC.png",
+    "officialUrl": "https://www.jabra.com/business/speakerphones/jabra-speak-series/jabra-speak2-55"
+  },
+  {
+    "id": "jabra-speak2-40",
+    "brand": "Jabra",
+    "model": "Jabra Speak2 40",
+    "category": "Konferans Hoparlörü",
+    "subcategory": "Speak2 Serisi",
+    "badge": "Kablolu Tak-Çalıştır",
+    "featured": false,
+    "shortDescription": "Kabloyla anında bağlanan, şarj gerektirmeyen, 4 beamforming mikrofonlu ve Full-Duplex sesli konferans hoparlörü.",
+    "specs": {
+      "Hoparlör": "50mm Hoparlör, Geniş Bant Ses",
+      "Mikrofon": "4 Beamforming Mikrofon",
+      "Bağlantı": "Entegre Çift Başlıklı USB-C / USB-A Kablo",
+      "Güç": "Doğrudan USB üzerinden çalışır (Bataryasız)"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/4/f/3/3/4f337b1e661525cd0680f494d71bfc7886308ff2_00_Jabra_Speak2_55_UC.png",
+    "officialUrl": "https://www.jabra.com/business/speakerphones/jabra-speak-series/jabra-speak2-40"
+  },
+  {
+    "id": "jabra-speak-750",
+    "brand": "Jabra",
+    "model": "Jabra Speak 750",
+    "category": "Konferans Hoparlörü",
+    "subcategory": "Klasik Speak Serisi",
+    "badge": "Kablosuz Stereo Çiftleme",
+    "featured": true,
+    "shortDescription": "Gerçek Tam Çift Yönlü ses, Hi-Fi müzik kalitesi ve ikinci hoparlörle kablosuz stereo eşleştirme.",
+    "specs": {
+      "Ses": "Tam Çift Yönlü Ses, Hi-Fi Müzik",
+      "Eşleştirme": "İki Speak 750'yi kablosuz birbirine bağlama (12 kişiye kadar)",
+      "Batarya": "11 saate kadar pil ömrü",
+      "Bağlantı": "USB-A Kablo + Bluetooth (Jabra Link 370 dahil)"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/c/3/3/9/c3393296767374fc002b8fde20b77dcab9f6dd38_a0_Jabra_Speak_750_UC_P01.png",
+    "officialUrl": "https://www.jabra.com/business/speakerphones/jabra-speak-series/jabra-speak-750/buy"
+  },
+  {
+    "id": "jabra-evolve2-85",
+    "brand": "Jabra",
+    "model": "Jabra Evolve2 85",
+    "category": "Ofis Kulaklıkları",
+    "subcategory": "Evolve2 Serisi",
+    "badge": "Premium Over-Ear ANC",
+    "featured": false,
+    "shortDescription": "10 mikrofonlu dijital hibrit ANC, gizlenebilir mikrofon kolu, 37 saat pil ve 40mm kaçak önleyici hoparlörler.",
+    "specs": {
+      "ANC": "10 Mikrofonlu Dijital Hibrit ANC",
+      "Hoparlör": "40mm Müzik ve Ses Hoparlörleri",
+      "Batarya": "37 Saate Kadar Pil Ömrü",
+      "Mikrofon Kolu": "Gizlenebilir Manyetik Mikrofon Kolu"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/f/5/3/3/f533de7b571a9ee33edc8770df0c04c681da49c3_Jabra_Evolve2_85_UC_00.png",
+    "officialUrl": "https://www.jabra.com/business/office-headsets/jabra-evolve/jabra-evolve2-85"
+  },
+  {
+    "id": "jabra-evolve2-75",
+    "brand": "Jabra",
+    "model": "Jabra Evolve2 75",
+    "category": "Ofis Kulaklıkları",
+    "subcategory": "Evolve2 Serisi",
+    "badge": "Hibrit Standart",
+    "featured": true,
+    "shortDescription": "8 mikrofonlu gelişmiş ses mühendisliği, ayarlanabilir Jabra Advanced ANC ve çift köpüklü deri yastıklar.",
+    "specs": {
+      "Mikrofon": "8 Mikrofonlu Gelişmiş Dizilim",
+      "ANC": "11 Seviyeli Ayarlanabilir Jabra Advanced ANC",
+      "Batarya": "36 Saate Kadar Müzik / 24 Saat Konuşma",
+      "Konfor": "Çift Köpüklü Ergonomik Kulak Yastıkları"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/4/6/c/2/46c285a2f501c185110159f5432e1250cd2251c8_Evolve2_75_MS_USB_A_01.png",
+    "officialUrl": "https://www.jabra.com/business/office-headsets/jabra-evolve/jabra-evolve2-75"
+  },
+  {
+    "id": "jabra-evolve2-65-flex",
+    "brand": "Jabra",
+    "model": "Jabra Evolve2 65 Flex",
+    "category": "Ofis Kulaklıkları",
+    "subcategory": "Evolve2 Serisi",
+    "badge": "Katlanabilir Mobil",
+    "featured": true,
+    "shortDescription": "Katlanabilir menteşe tasarımı, Jabra Air Comfort konforu ve Hibrit ANC.",
+    "specs": {
+      "Tasarım": "Katlanabilir Menteşe & Air Comfort Kafa Bandı",
+      "Gürültü Engelleme": "Hibrit Aktif Gürültü Önleme (ANC)",
+      "Kablosuz": "Bluetooth 5.2 + Kablosuz Şarj Standı Desteği"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/1/2/2/6/1226d76923e8f48a4179aaa3cb477f16a74ed139_02_evolve2_55_ms_stereo.png",
+    "officialUrl": "https://www.jabra.com/en-emea/business/office-headsets/jabra-evolve/jabra-evolve2-65-flex"
+  },
+  {
+    "id": "jabra-evolve2-55",
+    "brand": "Jabra",
+    "model": "Jabra Evolve2 55",
+    "category": "Ofis Kulaklıkları",
+    "subcategory": "Evolve2 Serisi",
+    "badge": "Hafif ANC",
+    "featured": false,
+    "shortDescription": "Aktif Gürültü Önlemeli (ANC), çift cihaz bağlantılı ve ultra hafif ofis kulaklığı.",
+    "specs": {
+      "ANC": "Aktif Gürültü Önleme",
+      "Bağlantı": "Bluetooth ve Link 380 USB Adaptör",
+      "Batarya": "16 Saat Konuşma / 18 Saat Dinleme"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/1/2/2/6/1226d76923e8f48a4179aaa3cb477f16a74ed139_02_evolve2_55_ms_stereo.png",
+    "officialUrl": "https://www.jabra.com/business/office-headsets/jabra-evolve/jabra-evolve2-55"
+  },
+  {
+    "id": "jabra-evolve2-50",
+    "brand": "Jabra",
+    "model": "Jabra Evolve2 50",
+    "category": "Ofis Kulaklıkları",
+    "subcategory": "Evolve2 Serisi",
+    "badge": "Kablolu + BT Çift Bağlantı",
+    "featured": true,
+    "shortDescription": "Kablolu USB bağlantısına ek olarak akıllı telefona Bluetooth ile eşleşebilen ANC'li hibrit model.",
+    "specs": {
+      "Bağlantı": "Kablolu USB-A veya USB-C + Eşzamanlı Bluetooth",
+      "Gürültü Engelleme": "Aktif Gürültü Önleme (ANC)",
+      "Mikrofon": "Akıllı mikrofon susturma (kolu kaldırınca sessize alma)"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/1/2/2/6/1226d76923e8f48a4179aaa3cb477f16a74ed139_02_evolve2_55_ms_stereo.png",
+    "officialUrl": "https://www.jabra.com/business/office-headsets/jabra-evolve/jabra-evolve2-50"
+  },
+  {
+    "id": "jabra-engage-75-se",
+    "brand": "Jabra",
+    "model": "Jabra Engage 75 SE",
+    "category": "Çağrı Merkezi Kulaklıkları",
+    "subcategory": "Engage DECT Serisi",
+    "badge": "150m DECT & 5 Cihaz",
+    "featured": true,
+    "shortDescription": "150 metre DECT kablosuz menzil, askeri düzeyde FIPS 256-bit şifreleme ve aynı anda 5 cihaza eşzamanlı bağlantı.",
+    "specs": {
+      "Kablosuz Menzil": "150 Metreye (490ft) kadar DECT Menzili",
+      "Kapasite Yoğunluğu": "Aynı ofiste geleneksel DECT'e göre 3 kat daha fazla eşzamanlı kullanıcı",
+      "Çoklu Bağlantı": "Aynı anda 5 Cihaz (1 Masa Telefonu + 2 USB PC + 2 Bluetooth Mobil)",
+      "Güvenlik": "DECT Security Level C Üzeri FIPS 256-bit AES Şifreleme",
+      "Batarya": "13 Saate Kadar Kesintisiz Konuşma, Hızlı Şarj",
+      "İşitme Koruması": "PeakStop ve IntelliTone 2.0 Ses Seviyesi Sınırlama"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/c/c/c/4/ccc404ec906d9c80b3b15373f3132dc75a3e9077_00_Engage_75_Mono_CMF.png",
+    "officialUrl": "https://www.jabra.com/business/office-headsets/jabra-engage/jabra-engage-75-se"
+  },
+  {
+    "id": "jabra-engage-55-se",
+    "brand": "Jabra",
+    "model": "Jabra Engage 55 SE",
+    "category": "Çağrı Merkezi Kulaklıkları",
+    "subcategory": "Engage DECT Serisi",
+    "badge": "Taşınabilir DECT USB",
+    "featured": false,
+    "shortDescription": "Hantal baz istasyonu gerektirmeyen, esnek Link 400 USB DECT adaptörüyle 150m menzil sunan taşınabilir DECT kulaklık.",
+    "specs": {
+      "Menzil": "150 Metre DECT Menzili",
+      "Adaptör": "Önceden eşleştirilmiş Link 400 Esnek USB DECT Dongle",
+      "Güvenlik": "FIPS 256-bit Askeri Düzey Şifreleme",
+      "Ağırlık": "Ultra Hafif Tasarım (Mono veya Stereo Seçeneği)"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/9/c/d/b/9cdb19ced1919783ddcc216a566b0e53d302b67e_Jabra_Engage_55_Mono_UC_Angled_USB_A_Adapter_01.png",
+    "officialUrl": "https://www.jabra.com/business/office-headsets/jabra-engage/jabra-engage-55/buy"
+  },
+  {
+    "id": "jabra-engage-50-ii",
+    "brand": "Jabra",
+    "model": "Jabra Engage 50 II",
+    "category": "Çağrı Merkezi Kulaklıkları",
+    "subcategory": "Engage Kablolu Serisi",
+    "badge": "Canlı Konuşma Analitiği",
+    "featured": true,
+    "shortDescription": "3 mikrofonlu yapay zeka destekli gürültü engelleme, Engage+ gerçek zamanlı konuşma analitiği ve SmartRinger akıllı kontrol ünitesi.",
+    "specs": {
+      "Mikrofon": "3 Mikrofonlu Akıllı Gürültü Engelleme (-36dB)",
+      "Yazılım": "Jabra Engage+ Canlı Ajan Rehberliği",
+      "Kontrol Ünitesi": "Link Controller (SmartRinger Akıllı Zil ve Ses Kontrolü)",
+      "Dayanıklılık": "Tüm gün kullanıma uygun ultra dayanıklı gövde ve kafa bandı"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/5/f/4/3/5f43f4cd2b92b2d9f4716c2bc36e6394288afd2e_Jabra_Engage_50_II_Mono_wLink_Plus_UC_00.png",
+    "officialUrl": "https://www.jabra.com/business/office-headsets/jabra-engage/jabra-engage-50-ii"
+  },
+  {
+    "id": "jabra-biz-2400-ii",
+    "brand": "Jabra",
+    "model": "Jabra Biz 2400 II",
+    "category": "Çağrı Merkezi Kulaklıkları",
+    "subcategory": "Biz & Pro Serisi",
+    "badge": "Ultra Dayanıklı Kevlar",
+    "featured": false,
+    "shortDescription": "Kevlar takviyeli kopmaz kablo, 360° dönebilen kırılmaz FreeSpin mikrofon kolu ve Air Shock nefes filtresi.",
+    "specs": {
+      "Kablo": "Kevlar® Güçlendirilmiş Kopmaz Kablo",
+      "Mikrofon Kolu": "360° Kırılmaz FreeSpin™ Kolu",
+      "Filtre": "Air Shock Nefes ve Patlama Sesi Engelleyici",
+      "Bağlantı": "Hızlı Çıkarılabilir QD (Quick Disconnect) veya USB"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/1/1/6/1/116124aaf35ab7c5fe8ecc2f8190edf735b30407_Jabra_Biz2300_mono_angle_transp_01_Jabra_Biz_2300_QD_Mono_0001_Jabra_Biz2300_mono_angle_transp_.png",
+    "officialUrl": "https://www.jabra.com/business/contact-center-headsets/jabra-biz-2400ii/buy"
+  },
+  {
+    "id": "jabra-biz-2300",
+    "brand": "Jabra",
+    "model": "Jabra Biz 2300",
+    "category": "Çağrı Merkezi Kulaklıkları",
+    "subcategory": "Biz & Pro Serisi",
+    "badge": "49g Ultra Hafif",
+    "featured": false,
+    "shortDescription": "Sadece 49 gram ağırlığıyla gün boyu hissedilmeyen konfor ve HD ses netliği.",
+    "specs": {
+      "Ağırlık": "Sadece 49g (Mono) / 68g (Duo)",
+      "Mikrofon": "Gürültü Önleyici Mikrofon",
+      "Bağlantı": "USB veya QD"
+    },
+    "useCases": [
+      "Hibrit çalışma, kurumsal ofis ve açık ofis çalışanları",
+      "Microsoft Teams ve Zoom üzerinden profesyonel toplantılar",
+      "Gürültülü ortamlarda kristal netliğinde ses ve yapay zekalı video"
+    ],
+    "imageUrl": "https://assets2.jabra.com/1/1/6/1/116124aaf35ab7c5fe8ecc2f8190edf735b30407_Jabra_Biz2300_mono_angle_transp_01_Jabra_Biz_2300_QD_Mono_0001_Jabra_Biz2300_mono_angle_transp_.png",
+    "officialUrl": "https://www.jabra.com/business/contact-center-headsets/jabra-biz-2300/buy"
+  },
+  {
+    "id": "fanvil-v67",
+    "brand": "Fanvil",
+    "model": "Fanvil V67",
+    "category": "IP Masa Telefonları",
+    "subcategory": "V Serisi Amiral Gemisi Video Telefon",
+    "badge": "Amiral Gemisi",
+    "featured": true,
+    "shortDescription": "7 inç ayarlanabilir dokunmatik ekranlı, 5MP HD dahili kameralı, Android 9.0 işletim sistemli ve antibakteriyel yüzeyli amiral gemisi görüntülü IP telefon.",
+    "specs": {
+      "SIP Hat ve DSS": "20 SIP Hattı, 112 Tek Dokunuşlu DSS Tuşu",
+      "Ekran ve Kamera": "7 inç (1024x600) Ayarlanabilir Dokunmatik, 5MP 1080p Kamera",
+      "Kablosuz": "Dahili 2.4G/5G Çift Bant Wi-Fi ve Bluetooth 5.0",
+      "Özel Tasarım": "Antibakteriyel Ahize/Tuş Takımı ve RGB Işıklı Tuşlar"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20230714/11044x08v2.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/v%20series%20ip%20phone/20220321/7299.html"
+  },
+  {
+    "id": "fanvil-v66",
+    "brand": "Fanvil",
+    "model": "Fanvil V66",
+    "category": "IP Masa Telefonları",
+    "subcategory": "V Serisi Üst Düzey İş Telefonu",
+    "badge": "7\" Dokunmatik",
+    "featured": false,
+    "shortDescription": "7 inç ayarlanabilir IPS dokunmatik ekran, 20 SIP hattı, 116 DSS tuşu, dahili çift bant Wi-Fi 6 ve Bluetooth 5.4 destekli kurumsal yönetici telefonu.",
+    "specs": {
+      "SIP Hat ve DSS": "20 SIP Hattı, 116 DSS Tuşu",
+      "Ekran": "7 inç (1024x600) Ayarlanabilir IPS Dokunmatik",
+      "Kablosuz": "Dahili 2.4G/5G Wi-Fi 6 ve Bluetooth 5.4",
+      "Ağ": "Çift Gigabit Ethernet, PoE"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20241205/1721b4hxb6.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/v%20series%20ip%20phone/20241205/9270.html"
+  },
+  {
+    "id": "fanvil-v65",
+    "brand": "Fanvil",
+    "model": "Fanvil V65",
+    "category": "IP Masa Telefonları",
+    "subcategory": "V Serisi İş Telefonları",
+    "badge": "Çok Satan",
+    "featured": false,
+    "shortDescription": "4.3 inç ayarlanabilir renkli ekranlı, dahili çift bant Wi-Fi ve Bluetooth 5.0 destekli üst düzey yönetici IP telefonu.",
+    "specs": {
+      "SIP Hat ve DSS": "20 SIP Hattı, 45 DSS/BLF Tuşu",
+      "Ekran": "4.3 inç Ayarlanabilir IPS Renkli Ekran",
+      "Kablosuz": "Entegre 2.4G/5G Wi-Fi ve Bluetooth 5.0",
+      "Ağ": "Çift Gigabit Ethernet Portu, Entegre PoE"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20230605/1347062820.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/v%20series%20ip%20phone/20220321/7300.html"
+  },
+  {
+    "id": "fanvil-v64",
+    "brand": "Fanvil",
+    "model": "Fanvil V64",
+    "category": "IP Masa Telefonları",
+    "subcategory": "V Serisi İş Telefonları",
+    "badge": "Wi-Fi & BT Dahili",
+    "featured": false,
+    "shortDescription": "3.5 inç renkli LCD ekran, 12 SIP hattı, 21 DSS tuşu, dahili çift bant Wi-Fi ve Bluetooth 5.0 ile modern ofisler için kurumsal IP telefon.",
+    "specs": {
+      "SIP Hat ve DSS": "12 SIP Hattı, 21 DSS Tuşu",
+      "Ekran": "3.5 inç (480x320) Renkli LCD",
+      "Kablosuz": "Dahili 2.4G/5G Wi-Fi ve Bluetooth",
+      "Ağ": "Çift Gigabit Port, PoE"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20230605/1354v6806j.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/v%20series%20ip%20phone/20220321/7301.html"
+  },
+  {
+    "id": "fanvil-v63",
+    "brand": "Fanvil",
+    "model": "Fanvil V63",
+    "category": "IP Masa Telefonları",
+    "subcategory": "V Serisi İş Telefonları",
+    "badge": "Kurumsal Standart",
+    "featured": false,
+    "shortDescription": "2.8 inç renkli ekran, 6 SIP hattı, 21 DSS tuşu, çift Gigabit PoE port ve şık kristal tuş takımıyla kurumsal masaüstü IP telefon.",
+    "specs": {
+      "SIP Hat ve DSS": "6 SIP Hattı, 21 DSS Tuşu",
+      "Ekran": "2.8 inç Renkli Ekran",
+      "Ağ": "Çift Gigabit Port, PoE",
+      "Ses": "Opus ve G.722 HD Ses"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20230919/10056ndxtb.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/v%20series%20ip%20phone/20230919/8545.html"
+  },
+  {
+    "id": "fanvil-v62-pro",
+    "brand": "Fanvil",
+    "model": "Fanvil V62 Pro",
+    "category": "IP Masa Telefonları",
+    "subcategory": "V Serisi İş Telefonları",
+    "badge": "Kablosuz BT Ahize",
+    "featured": false,
+    "shortDescription": "Kablosuz Bluetooth ahizesi, 2.8 inç renkli ekranı, 12 SIP hattı, dahili Wi-Fi 6 ve Bluetooth 5.4 özelliğiyle özgür hareket imkanı sunan iş telefonu.",
+    "specs": {
+      "SIP Hat ve DSS": "12 SIP Hattı, 21 DSS Tuşu",
+      "Ahize": "Kablosuz Bluetooth Ahize",
+      "Kablosuz": "Dahili Wi-Fi 6 ve Bluetooth 5.4",
+      "Ağ": "Çift Gigabit PoE"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20241205/1729lr6dx0.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/v%20series%20ip%20phone/20241205/9271.html"
+  },
+  {
+    "id": "fanvil-x210",
+    "brand": "Fanvil",
+    "model": "Fanvil X210 & X210i Konsol IP Telefon",
+    "category": "IP Masa Telefonları",
+    "subcategory": "X Serisi Konsol & Yönetici Telefonları",
+    "badge": "3 Ekranlı Konsol",
+    "featured": true,
+    "shortDescription": "3 adet renkli ekranı, toplam 106 DSS/BLF tuşu ve X210i modelinde kazboynu anons mikrofonuyla yoğun çağrı trafiğini yöneten konsol IP telefon.",
+    "specs": {
+      "Ekran Yapısı": "4.3 inç Ana Renkli Ekran + 2x 3.5 inç Yan DSS Renkli Ekran",
+      "SIP ve DSS": "20 SIP Hattı, 106 Toplam DSS Tuşu",
+      "Varyant": "X210 (Yönetici/Sekreterya) ve X210i (Kazboynu Mikrofonlu Anons)"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20210628/1127hv2046.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/x/20210921/5040.html"
+  },
+  {
+    "id": "fanvil-x7a",
+    "brand": "Fanvil",
+    "model": "Fanvil X7A (Kameralı / Standart)",
+    "category": "IP Masa Telefonları",
+    "subcategory": "X Serisi Dokunmatik Android Telefonlar",
+    "badge": "7\" Android",
+    "featured": false,
+    "shortDescription": "7 inç kapasitif dokunmatik ekran, 20 SIP hattı, 112 DSS tuşu, dahili Wi-Fi/Bluetooth ve opsiyonel USB kameralı Android kurumsal IP telefon.",
+    "specs": {
+      "Ekran": "7 inç Renkli Dokunmatik Ekran, Android 9.0",
+      "SIP ve DSS": "20 SIP Hattı, 112 Sanal DSS Tuşu",
+      "Kablosuz": "Dahili Çift Bant Wi-Fi ve Bluetooth"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20210623/1647tb08tx.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/x/20210921/5044.html"
+  },
+  {
+    "id": "fanvil-x6u",
+    "brand": "Fanvil",
+    "model": "Fanvil X6U",
+    "category": "IP Masa Telefonları",
+    "subcategory": "XU Serisi Çift/Üç Ekranlı IP Telefonlar",
+    "badge": "3 Renkli Ekran",
+    "featured": false,
+    "shortDescription": "4.3 inç ana renkli ekran ve 2 adet 2.4 inç yan renkli DSS ekranı, 20 SIP hattı, 60 DSS tuşu, dahili Bluetooth ve Harman hoparlörlü üst düzey telefon.",
+    "specs": {
+      "Ekran": "4.3 inç Ana Ekran + 2 Adet 2.4 inç Yan Renkli DSS Ekranı",
+      "SIP ve DSS": "20 SIP Hattı, 60 DSS Tuşu",
+      "Ses": "Harman Kardon Hoparlör, HD Ses"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20210629/1500rx2r62.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/xu/20210921/5049.html"
+  },
+  {
+    "id": "fanvil-x5u",
+    "brand": "Fanvil",
+    "model": "Fanvil X5U & X5U-R (Kırmızı Acil)",
+    "category": "IP Masa Telefonları",
+    "subcategory": "XU Serisi Çift Ekranlı IP Telefonlar",
+    "badge": "Çift Ekran + BT",
+    "featured": false,
+    "shortDescription": "3.5 inç ana renkli ekran + 2.4 inç yan DSS ekranı, 16 SIP hattı, 30 DSS tuşu, dahili Bluetooth, Harman hoparlör ve X5U-R kırmızı acil durum modeli.",
+    "specs": {
+      "Ekran": "3.5 inç Renkli Ana Ekran + 2.4 inç Renkli Yan DSS Ekranı",
+      "SIP ve DSS": "16 SIP Hattı, 30 DSS Tuşu",
+      "Özel Model": "X5U-R Kırmızı Acil Durum / İtfaiye / Güvenlik Hattı Modeli"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20210629/1552j80h2r.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/xu/20210921/5048.html"
+  },
+  {
+    "id": "fanvil-x4u-x3u",
+    "brand": "Fanvil",
+    "model": "Fanvil X4U & X3U Pro",
+    "category": "IP Masa Telefonları",
+    "subcategory": "XU Serisi Kurumsal IP Telefonlar",
+    "badge": "Çift Gigabit",
+    "featured": false,
+    "shortDescription": "2.8 inç renkli ana ekran + 2.4 inç yan DSS ekranlı 12 hatlı X4U ve 6 SIP hatlı renkli ekranlı X3U Pro kurumsal Gigabit IP telefonlar.",
+    "specs": {
+      "X4U Özellikleri": "12 SIP Hattı, Çift Renkli Ekran, 30 DSS Tuşu, Çift Gigabit PoE",
+      "X3U Pro Özellikleri": "6 SIP Hattı, 2.8 inç Renkli Ekran, 3 Hat Tuşu, Çift Gigabit"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20210629/1747vp8064.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/xu/20210921/5046.html"
+  },
+  {
+    "id": "fanvil-h6w-h5w",
+    "brand": "Fanvil",
+    "model": "Fanvil H6W & H5W Renkli Ekranlı Otel Telefonu",
+    "category": "Otel Telefonları",
+    "subcategory": "H Serisi Otel IP Telefonları",
+    "badge": "3.5\" Renkli Otel",
+    "featured": false,
+    "shortDescription": "3.5 inç renkli ekranında otel logosu, oda servisi bilgileri ve kapı kamerası gösterebilen, dahili çift bant Wi-Fi ve USB şarj portlu lüks otel IP telefonu.",
+    "specs": {
+      "Ekran": "3.5 inç Renkli LCD (Otel Tanıtım Görseli Gösterimi)",
+      "Wi-Fi": "Dahili 2.4G/5G Wi-Fi",
+      "Şarj": "1 Adet USB Şarj Portu"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20241218/11212p8t20.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/h%20xiliejiudianhuaji/20240808/8990.html"
+  },
+  {
+    "id": "fanvil-h4w-h3w-h1",
+    "brand": "Fanvil",
+    "model": "Fanvil H4W / H4 / H3W / H1 Otel Telefonları",
+    "category": "Otel Telefonları",
+    "subcategory": "H Serisi Otel IP Telefonları",
+    "badge": "Otel Standart",
+    "featured": false,
+    "shortDescription": "Otel odaları için özelleştirilebilir ön yüzeyli (faceplate), 6 hızlı arama tuşlu, USB şarj portlu, PoE ve Wi-Fi (H4W/H3W) seçenekli otel telefonları.",
+    "specs": {
+      "Modeller": "H4W (Wi-Fi), H4 (PoE), H3W (Wi-Fi), H1 (Ekonomik 8 Hızlı Tuşlu)",
+      "Özellik": "Resepsiyon, Kat Hizmetleri, Restoran Tek Tuş Arama"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20240808/1145jj20tl.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/h%20xiliejiudianhuaji/20240808/8992.html"
+  },
+  {
+    "id": "fanvil-h2u",
+    "brand": "Fanvil",
+    "model": "Fanvil H2U Kompakt Duvar / Banyo IP Telefonu",
+    "category": "Otel Telefonları",
+    "subcategory": "H Serisi Otel IP Telefonları",
+    "badge": "Banyo & Duvar Tipi",
+    "featured": false,
+    "shortDescription": "Otel banyoları, koridorlar, asansör holleri ve hastane odaları için kompakt duvar/masa tipi, 10 hızlı arama tuşlu ve PoE destekli mini IP telefon.",
+    "specs": {
+      "Tasarım": "Kompakt Duvar ve Masaüstü Kullanım, Siyah ve Beyaz Renk",
+      "SIP ve Tuşlar": "2 SIP Hattı, 10 Programlanabilir Hızlı Arama Tuşu, 1 DSS Tuşu"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20220518/1513n642vl.png",
+    "officialUrl": "https://www.fanvil.com/products/p1/h%20xiliejiudianhuaji/20210921/5056.html"
+  },
+  {
+    "id": "linkvil-w611w",
+    "brand": "Fanvil",
+    "model": "LINKVIL W611W Taşınabilir Endüstriyel Wi-Fi Telefon",
+    "category": "Kablosuz WiFi Telefonlar",
+    "subcategory": "Taşınabilir Wi-Fi IP Telefonlar",
+    "badge": "IP67 Dayanıklı",
+    "featured": false,
+    "shortDescription": "IP67 su, toz ve 1.8 metre düşme dayanıklılığına sahip, depo, fabrika, otel ve hastaneler için tasarlanmış endüstriyel taşınabilir Wi-Fi 6 telefon.",
+    "specs": {
+      "Dayanıklılık": "IP67 Sertifikalı Su/Toz Geçirmez Gövde",
+      "Kablosuz": "Çift Bant 2.4G/5G Wi-Fi 6, Bluetooth 5.0",
+      "Batarya": "1900mAh Batarya, 9 Saat Konuşma, 200 Saat Bekleme"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/linkvilresource/Uploads/product/20220815/62f9dea7a5744.png",
+    "officialUrl": "https://www.fanvil.com/linkvil/info/id/119.html"
+  },
+  {
+    "id": "fanvil-i64",
+    "brand": "Fanvil",
+    "model": "Fanvil i64 Tuş Takımlı Görüntülü Kapı İnterkomu",
+    "category": "İnterkom & Kapı Telefonu",
+    "subcategory": "i6 Serisi Görüntülü Kapı İnterkomları",
+    "badge": "IP66 & IK07 Şifreli",
+    "featured": false,
+    "shortDescription": "Tam sayısal şifre tuş takımı, alüminyum alaşımlı dış ortam tasarımı, 2MP geniş açılı gece görüşlü kamerası ve RFID kart okuyuculu akıllı SIP kapı telefonu.",
+    "specs": {
+      "Kamera": "2MP 1080p Full HD Geniş Açılı Gece Görüşlü Kamera (ONVIF)",
+      "Geçiş Kontrol": "Şifre Tuş Takımı, RFID/IC Kart, İç İstasyon, Uzaktan DTMF ve BLE"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20240605/11564jnr64.png",
+    "officialUrl": "https://www.fanvil.com/products/p5/i6%20series%20high-end%20video%20door%20phone/20220402/7321.html"
+  },
+  {
+    "id": "fanvil-i63-i62-i61-i60",
+    "brand": "Fanvil",
+    "model": "Fanvil i63 / i62 / i61 & i60 / i60K Kapı İnterkomları",
+    "category": "İnterkom & Kapı Telefonu",
+    "subcategory": "i6 Serisi Görüntülü Kapı İnterkomları",
+    "badge": "Villa & Plaza Giriş",
+    "featured": false,
+    "shortDescription": "5 tuşlu (i63), tek tuşlu (i61/i62) alüminyum alaşım modeller ve kompakt IP65 korumalı i60 / i60K (şifreli) görüntülü kapı telefonları.",
+    "specs": {
+      "Modeller": "i63 (5 Butonlu), i62 & i61 (Tek Butonlu), i60K (Kompakt Tuş Takımlı), i60 (Kompakt Tek Tuş)",
+      "Dayanıklılık": "IP66/IP65 Su ve Toz Koruması, Gece Görüşlü Kamera"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20220402/1629z6r28l.png",
+    "officialUrl": "https://www.fanvil.com/products/p5/i6%20series%20high-end%20video%20door%20phone/20220402/7319.html"
+  },
+  {
+    "id": "fanvil-a12v-a11v-i16sv",
+    "brand": "Fanvil",
+    "model": "Fanvil A12V / A11V / i16SV / i16SV-02P Endüstriyel SOS İnterkomlar",
+    "category": "İnterkom & Kapı Telefonu",
+    "subcategory": "Dış Ortam Acil Durum (SOS) & Endüstriyel İnterkomlar",
+    "badge": "IP66 & IK10 Vandalizm",
+    "featured": false,
+    "shortDescription": "Otoyol, tünel, otopark, maden ve kampüsler için paslanmaz çelik / alüminyum gövdeli, IP65/IP66 ve IK10 darbe dayanımlı sesli ve kameralı SOS acil çağrı interkomları.",
+    "specs": {
+      "Modeller": "A12V/A12 (Paslanmaz Çelik), A11V/A11, i16S/i16SV (Tek Buton), i16S-02P/i16SV-02P (Çift Buton)",
+      "Dayanıklılık": "IP65/IP66 Su Geçirmezlik ve IK10 Darbe Koruması"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20241211/094368dd40.png",
+    "officialUrl": "https://www.fanvil.com/products/p5/sip%20duijiang2/20241211/9306.html"
+  },
+  {
+    "id": "fanvil-i10sv-a10-h501",
+    "brand": "Fanvil",
+    "model": "Fanvil i10SV / i10S / i10D & A10 / H501 Mini SIP İnterkomlar",
+    "category": "İnterkom & Kapı Telefonu",
+    "subcategory": "İç Ortam Mini SIP İnterkomlar",
+    "badge": "Kompakt Mini İnterkom",
+    "featured": false,
+    "shortDescription": "Asansörler, gişeler, otopark bariyerleri, temiz odalar ve otel kapı önleri için kompakt tasarımlı sesli ve görüntülü mini SIP interkom ailesi.",
+    "specs": {
+      "Modeller": "i10S/i10SV/i10SD, i10/i10D, A10 Serisi (Siyah/Beyaz, Wi-Fi), H501 Serisi",
+      "Kullanım": "Asansör İçi Acil İletişim, Banka/Hastane Gişesi, Bariyer Noktaları"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20230615/15100bj204.png",
+    "officialUrl": "https://www.fanvil.com/products/p5/sip%20duijiang2/20210921/5027.html"
+  },
+  {
+    "id": "fanvil-pa3-pa2s",
+    "brand": "Fanvil",
+    "model": "Fanvil PA3 & PA2S SIP Paging / Anons Gateway",
+    "category": "Paging & Seslendirme",
+    "subcategory": "SIP Paging & Ses/Görüntü Ağ Geçitleri",
+    "badge": "Amfi IP Dönüştürücü",
+    "featured": false,
+    "shortDescription": "Mevcut analog anons amfilerini ve hoparlörlerini IP santrale ve SIP Multicast anons sistemine dönüştüren PA3 ve PA2S SIP Paging Gateway modülleri.",
+    "specs": {
+      "PA3": "Line-In/Line-Out, USB/TF Karttan Zamanlı Zil ve Müzik Yayını, Dahili Amfi Çıkışı",
+      "PA2S": "SIP Anons + Acil İnterkom + Kamera Tetikleme Ağ Geçidi"
+    },
+    "useCases": [
+      "Şirket santrali, çağrı merkezi ve plaza ofis masaüstü iletişimi",
+      "Grandstream, 3CX, Asterisk ve bulut PBX santrallerle kusursuz entegrasyon",
+      "Yüksek dayanıklılık, PoE desteği ve HD ses kalitesi"
+    ],
+    "imageUrl": "https://www.fanvil.com/upload/images/20210712/1332v00x4d.png",
+    "officialUrl": "https://www.fanvil.com/products/p5/wulianwangwangguan_1/20210921/5036.html"
   }
 ];
